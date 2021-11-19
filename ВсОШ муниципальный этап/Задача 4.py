@@ -1,5 +1,8 @@
 n = int(input())  # количество поселений
-posel = list(map(int, input().split()))  # вместимость поселений
+po = input().split()  # вместимость поселений
+posel = dict()
+for i in range(len(po)):
+    posel[i] = int(po[i])
 m = int(input())  # количество рейсов
 for _ in range(m):
     rashod = 0
