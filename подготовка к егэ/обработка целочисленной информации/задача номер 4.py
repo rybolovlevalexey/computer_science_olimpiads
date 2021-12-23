@@ -7,23 +7,21 @@ def is_prost(num):
 
 def all_delit(num):
     sp = list()
-
-    for d in range(2, num // 2 + 1):
-        if num % d == 0 and is_prost(d):
-            if len(sp) == 0:
-                sp.append(d)
-            else:
-                if str(sp[0])[-1] == str(d)[-1]:
-                    sp.append(d)
-                else:
-                    return False
-            num //= d
-            if len(sp) > 3:
+    for d1 in range(2, num // 2 + 1):
+        if num % d1 == 0 and is_prost(d1):
+            flag = False
+            d2 = 1
+            for d2 in range(num // 10):
+                d2 = int(str(d2) + str(d1)[-1])
+                if num % d2 == 0 and is_prost(d2):
+                    flag = True
+            if not flag:
                 return False
-        if num == 1:
-            break
-    if num == 1 and len(sp) == 3 and str(sp[0])[-1] == str(sp[1])[-1] == str(sp[2])[-1]:
-        return True
+            d3 = num // (d1 * d2)
+            if is_prost(d3) and str(d3)[-1] == str(d2)[-1] == str(d1)[-1]:
+                return True
+            return False
+    return False
 
 
 answer = 0
