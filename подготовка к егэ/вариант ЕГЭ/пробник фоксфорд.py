@@ -1,10 +1,11 @@
-for i in range(10000, 0, -1):
-    w = i
-    w -= 2
-    n = 1
-    while w < 120:
-        w += 7
-        n = n * 2 + 2
-    if n == 94:
-        print(i)
-
+n = 1
+sp = sorted(['З', 'A', 'Ч', 'Ю', 'Я'])
+for i1 in sp:
+    for i2 in sp:
+        for i3 in sp:
+            for i4 in sp:
+                st = i1 + i2 + i3 + i4
+                if i1 == 'Я':
+                    print(n)
+                    breakpoint()
+                n += 1
