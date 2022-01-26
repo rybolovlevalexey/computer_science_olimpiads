@@ -1,11 +1,11 @@
-dp = [0] * 16
-dp[3] = 1
-for i in range(4, 16):
-    if i - 3 >= 0 and i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i - 3] + dp[i // 2]
-    elif i - 3 >= 0 and i % 2 != 0:
-        dp[i] = dp[i - 1] + dp[i - 3]
-    elif i - 3 < 0 and i % 2 == 0:
+dp = [0] * 39
+dp[2] = 1
+for i in range(3, 39):
+    if i % 2 == 0 and int(i ** 0.5) == i ** 0.5:
+        dp[i] = dp[i - 1] + dp[i // 2] + dp[int(i**0.5)]
+    elif i % 2 != 0 and int(i ** 0.5) == i ** 0.5:
+        dp[i] = dp[i - 1] + dp[int(i ** 0.5)]
+    elif i % 2 == 0 and int(i ** 0.5) != i ** 0.5:
         dp[i] = dp[i - 1] + dp[i // 2]
     else:
         dp[i] = dp[i - 1]
