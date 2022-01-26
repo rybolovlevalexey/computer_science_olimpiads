@@ -1,12 +1,10 @@
-for n in range(1000):
-    r = bin(n)[2:]
-    if n % 2 != 0:
-        r += '10'
-    else:
-        r += '01'
-    s = sum(map(int, list(r))) % 2
-    r += str(s)
-    r = int(r, 2)
-    if r > 147:
-        print(r)
-        break
+for i in range(10000, 0, -1):
+    w = i
+    w -= 2
+    n = 1
+    while w < 120:
+        w += 7
+        n = n * 2 + 2
+    if n == 94:
+        print(i)
+
