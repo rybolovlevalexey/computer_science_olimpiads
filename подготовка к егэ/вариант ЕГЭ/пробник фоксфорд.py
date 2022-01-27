@@ -1,14 +1,16 @@
-dp = [0] * 23
-dp[5] = 1
-for i in range(6, 12):
-    dp[i] = dp[i - 1] + dp[i - 3] + dp[i - 4]
-print(dp)
-res = dp[11]
-dp[:11] = [0] * 11
-print(dp)
-for i in range(12, 23):
-    if i == 14:
-        continue
-    dp[i] = dp[i - 1] + dp[i - 3] + dp[i - 4]
-print(dp)
-print(dp[-1])
+file = open('Zadanie-260283.txt', 'r')
+st = file.readline().strip()
+sp = list()
+for i in range(len(st)):
+    if st[i] == 'F':
+        sp.append(i)
+i1 = 0
+i2 = sp[3]
+ans = None
+for i in range(len(sp) - 4):
+    i1 = sp[i]
+    i2 = sp[i + 4]
+    lenght = i2 - i1 - 1
+    if ans is None or lenght > ans:
+        ans = lenght
+print(ans)
