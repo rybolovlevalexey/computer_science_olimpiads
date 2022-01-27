@@ -1,13 +1,11 @@
-file = open('Zadanie-260232.txt', 'r')
-sp = file.read().strip().split('\n')
-sp = list(map(int, sp))
-cnt = 0
-maximum = None
-for i in range(len(sp) - 1):
-    i1 = sp[i]
-    i2 = sp[i + 1]
-    if (i1 + i2) % 3 == 0 and (i1 + i2) % 6 != 0:
-        cnt += 1
-        if maximum is None or (i1 + i2) > maximum:
-            maximum = i1 + i2
-print(cnt, maximum)
+for x in range(201, 10000):
+    l = 2 * x - 15
+    m = 2 * x + 30
+    while l != m:
+        if l > m:
+            l = l - m
+        else:
+            m = m - l
+    if m == 45:
+        print(x)
+        break
