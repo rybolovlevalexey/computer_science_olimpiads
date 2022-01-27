@@ -1,11 +1,11 @@
-for a in range(10000, 1, -1):
-    flag = True
-    for x in range(1, 10000):
-        if x % a == 0 or not x % 16 == 0 or not x % 24 == 0:
-            pass
-        else:
-            flag = False
-            break
-    if flag:
-        print(a)
-        break
+def f(n):
+    if n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    elif n % 2 == 0 and n > 2:
+        return n * f(n - 1) + 2
+    elif n % 2 != 0 and n > 2:
+        return 1 + f(n - 2) + f(n - 1)
+
+print(f(9))
