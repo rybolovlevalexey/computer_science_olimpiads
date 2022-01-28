@@ -1,6 +1,6 @@
-dp = [0] * 50
-dp[26] = 1
-for i in range(27, 50):
+dp = [0] * 34
+dp[10] = 1
+for i in range(11, 34):
     if i % 10 == 9:
         dp[i] = dp[i - 1] + dp[i - 10]
     else:
