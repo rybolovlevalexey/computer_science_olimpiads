@@ -1,22 +1,15 @@
-file = open('Zadanie-260361.txt', 'r')
+file = open('Zadanie-260370B.txt', 'r')
 sp = file.read().strip().split('\n')
-s, n = map(int, sp[0].split())
+dlina = int(sp[0])
 del sp[0]
-sp = list(sorted(map(int, sp)))
-sp = list(filter(lambda x: x % 3 == 0, sp))
-sp = sp[10:]
-s1 = 0
-i = 0
-m = 0
-while True:
-    if s1 + sp[i] + sp[i + 1] > s:
-        break
-    s1 += sp[i]
-    i += 1
-    m += 1
-print(len(sp), i)
-for j in range(i, len(sp)):
-    if s1 + sp[j] > s:
-        print(sp[j - 1])
-        break
-print(s1, m)
+s = 0
+cnt = 0
+for i in range(dlina):
+    i1, i2, i3 = map(int, sp[i].split())
+    i1, i2, i3 = min(i1, i2, i3), sum([i1, i2, i3]) - max(i1, i2, i3) - min(i1, i2, i3), max(i1, i2, i3)
+    if i3 - i2 == 1 and cnt < 2:
+        cnt += 1
+        s += i2
+    else:
+        s += i3
+print(s)
