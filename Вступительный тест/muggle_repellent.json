@@ -1,0 +1,26 @@
+[
+  {
+    "creature": "centaurus",
+    "size": 10,
+    "danger": 3,
+    "magic": 5
+  },
+  {
+    "creature": "unicorn",
+    "size": 8,
+    "danger": 2,
+    "magic": 7
+  },
+  {
+    "creature": "quintaped",
+    "size": 12,
+    "danger": 8,
+    "magic": 4
+  },
+  {
+    "creature": "kelpie",
+    "size": 6,
+    "danger": 11,
+    "magic": 12
+  }
+]
