@@ -34,14 +34,14 @@ class GoodIfrit:
         return False
 
     def __le__(self, other):
+        if self.name == other.name and \
+                self.height == other.height and \
+                self.kidness == other.kidness:
+            return True
         if self.kidness < other.kidness:
             return True
         if self.height < other.height:
             return True
         if self.name < other.name:
-            return True
-        if self.name == other.name and \
-                self.height == other.height and \
-                self.kidness == other.kidness:
             return True
         return False
