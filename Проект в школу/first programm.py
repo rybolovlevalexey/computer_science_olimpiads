@@ -1,7 +1,7 @@
 import tkinter as tk
 
 
-def handle_click1(event):
+def click1(event):
     st = entry.get()
     if len(st) == 0:
         lbl = tk.Label(text='Вы ничего не ввели')
@@ -11,7 +11,7 @@ def handle_click1(event):
         lbl.pack()
 
 
-def handle_click2(event):
+def click2(event):
     st = entry.get()
     if len(st) == 0:
         lbl = tk.Label(text='Вы ничего не ввели')
@@ -32,7 +32,7 @@ button1 = tk.Button(
     bg="white",
     fg="black",
 )
-button1.bind("<Button-1>", handle_click1)
+button1.bind("<Button-1>", click1)
 button1.pack(side=tk.LEFT)
 button2 = tk.Button(
     text="Прощание\nс пользователем",
@@ -41,7 +41,7 @@ button2 = tk.Button(
     bg="white",
     fg="black",
 )
-button2.bind("<Button-1>", handle_click2)
+button2.bind("<Button-1>", click2)
 button2.pack(side=tk.RIGHT)
 entry = tk.Entry(fg="black", bg="white", width=500)
 entry.pack(side=tk.BOTTOM)
