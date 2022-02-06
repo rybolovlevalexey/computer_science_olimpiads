@@ -11,7 +11,7 @@ def start_window():
 
     screen.fill((0, 0, 0))
     font = pygame.font.Font(None, 50)
-    text = font.render("Выберите цвет персонажа и кубиков", True, (100, 255, 100))
+    text = font.render("Введите имя пользователя", True, (100, 255, 100))
     text_x = w // 2 - text.get_width() // 2
     text_y = h // 2 - text.get_height() // 2 - 250
     text_w = text.get_width()
@@ -20,13 +20,18 @@ def start_window():
     pygame.draw.rect(screen, (0, 255, 0), (text_x - 10, text_y - 10,
                                            text_w + 20, text_h + 20), 1)
 
+    text1 = font.render("", True, (100, 255, 100))
+    text1_x = w // 2 - text.get_width() // 2
+    text1_y = h // 2 - text.get_height() // 2 - 150
+    screen.blit(text1, (text1_x, text1_y))
+
     button1 = pygame_gui.elements.UIButton(
-        relative_rect=pygame.Rect((50, 300 - 75), (250, 50)),
+        relative_rect=pygame.Rect((50, 300), (250, 50)),
         text='Приветствие пользователя',
         manager=manager
     )
     button2 = pygame_gui.elements.UIButton(
-        relative_rect=pygame.Rect((450, 300 - 75), (250, 50)),
+        relative_rect=pygame.Rect((450, 300), (250, 50)),
         text='Прощание с пользователем',
         manager=manager
     )
@@ -45,40 +50,21 @@ def start_window():
                     global PLAYER_NAME
                     PLAYER_NAME = event.text
 
-
-
-                # при нажатии на кнопку "Начало игры" появляется надпись "Игра начинается"
                 if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
-                    if event.ui_element == button1:
-                        return True
-                        # можно запускать окно игры
-
-                # при наведении на кнопку "Начало игры" появляется надпись "Игра готовится к запуску..."
-                if event.user_type == pygame_gui.UI_BUTTON_ON_HOVERED and not flag_game_start_pushed:
-                    if event.ui_element == button1:
+                    if len(line_with_name.get_text()) == 0:
                         screen.fill((0, 0, 0))
-                        font = pygame.font.Font(None, 50)
-                        text = font.render("Игра готовится к запуску...", True, (100, 255, 100))
-                        text_x = w // 2 - text.get_width() // 2
-                        text_y = h // 2 - text.get_height() // 2 - 250
-                        text_w = text.get_width()
-                        text_h = text.get_height()
-                        screen.blit(text, (text_x, text_y))
-                        pygame.draw.rect(screen, (0, 255, 0), (text_x - 10, text_y - 10,
-                                                               text_w + 20, text_h + 20), 1)
-
-                if event.user_type == pygame_gui.UI_BUTTON_ON_UNHOVERED and not flag_game_start_pushed:
-                    if event.ui_element == button1:
-                        screen.fill((0, 0, 0))
-                        font = pygame.font.Font(None, 50)
-                        text = font.render("Выберите цвет персонажа и кубиков", True, (100, 255, 100))
-                        text_x = w // 2 - text.get_width() // 2
-                        text_y = h // 2 - text.get_height() // 2 - 250
-                        text_w = text.get_width()
-                        text_h = text.get_height()
-                        screen.blit(text, (text_x, text_y))
-                        pygame.draw.rect(screen, (0, 255, 0), (text_x - 10, text_y - 10,
-                                                               text_w + 20, text_h + 20), 1)
+                        text1 = font.render(f"Вы ничего не ввели", True,
+                                            (100, 255, 100))
+                        screen.blit(text1, (text1_x, text1_y - 100))
+                    else:
+                        if event.ui_element == button1:
+                            screen.fill((0, 0, 0))
+                            text1 = font.render(f"Приветствую, {line_with_name.get_text()}", True, (100, 255, 100))
+                            screen.blit(text1, (text1_x, text1_y - 100))
+                        else:
+                            screen.fill((0, 0, 0))
+                            text1 = font.render(f"Всего хорошего, {line_with_name.get_text()}", True, (100, 255, 100))
+                            screen.blit(text1, (text1_x, text1_y- 100))
 
             manager.process_events(event)
         manager.update(time_delta)
