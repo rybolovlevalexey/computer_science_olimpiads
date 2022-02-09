@@ -1,5 +1,5 @@
-dp = [0] * 47
-dp[30] = 1
-for i in range(31, 47):
-    dp[i] = dp[i - 1] + dp[i - 4] + dp[i - 5]
+dp = [0] * 52
+dp[31] = 1
+for i in range(32, 52):
+    dp[i] = dp[i - 2] + dp[i - 4] + dp[i - 5]
 print(dp)
