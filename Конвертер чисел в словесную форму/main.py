@@ -31,3 +31,15 @@ def convert(number):
                 st.append(first_razryad.get(number % 10))
         else:
             st.append(first_razryad.get(number % 10))
+        return ' '.join(st)
+
+
+def big_convert(number):
+    output = list()
+    st_number = str(number)[::-1]
+    razryad_num = 0  # 1 - тысяча, 2 - миллион
+    output.append(convert(int(st_number[:3][::-1])))
+    st_number = st_number[3:]
+    razryad_num += 1
+    while len(st_number) > 0:
+        pass
