@@ -1,15 +1,15 @@
 from itertools import permutations
-sp = set(permutations('ВЫИГРЫВАТЬ'))
-glas = ['Ы', 'И', 'А']
+sp = set(permutations('ШУРУМБУРУМ'))
+soglas = ['Ш', 'Р', 'М', 'Б']
 ans = set()
 print(len(sp))
 for elem in sp:
     elem = ''.join(elem)
     flag = True
-    for j in range(len(elem) - 1):
-        if elem[j] in glas and elem[j + 1] in glas:
+    for j in range(len(elem) - 2):
+        if elem[j] in soglas and elem[j + 1] in soglas and elem[j + 2] in soglas:
             flag = False
             break
-    if elem[0] != 'Ь' and flag:
+    if flag:
         ans.add(elem)
 print(len(ans))
