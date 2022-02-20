@@ -1,7 +1,7 @@
-for a in range(0, 200):
+for a in range(1, 10000):
     flag = True
-    for x in range(1, 1000):
-        if (x & a != 0) or (x & 60 == 0) or (x & 105 != 0):
+    for x in range(1, 100000):
+        if (x % 84 == 0) and (x % 90 == 0) or (x % a != 0):
             pass
         else:
             flag = False
