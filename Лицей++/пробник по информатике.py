@@ -1,5 +1,11 @@
-st = '219' * 219
-while '21' in st or '9999' in st:
-    st = st.replace('21', '9', 1)
-    st = st.replace('9999', '9', 1)
-print(st)
+for a in range(500000, 1, -1):
+    flag = True
+    for x in range(1, 1000000):
+        if (x % a == 0) or (x % 21 != 0) or (x % 14 == 0):
+            pass
+        else:
+            flag = False
+            break
+    if flag:
+        print(a)
+        break
