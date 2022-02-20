@@ -1,17 +1,11 @@
-dp = [0] * 37
-dp[10] = 1
-for i in range(11, 19):
-    if i % 2 == 0:
-        dp[i] = dp[i - 3] + dp[i - 2] + dp[i // 2]
+st = input()
+dlina = 0
+max_dlina = None
+for i in range(len(st) - 1):
+    if st[i] != st[i + 1]:
+        dlina += 1
     else:
-        dp[i] = dp[i - 3] + dp[i - 2]
-print(dp)
-for i in range(18):
-    dp[i] = 0
-print(dp)
-for i in range(19, 37):
-    if i % 2 == 0:
-        dp[i] = dp[i // 2] + dp[i - 2] + dp[i - 3]
-    else:
-        dp[i] = dp[i - 3] + dp[i - 2]
-print(dp)
+        if max_dlina is None or max_dlina < dlina:
+            max_dlina = dlina
+        dlina = 0
+print(max_dlina)
