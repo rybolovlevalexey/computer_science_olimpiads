@@ -9,4 +9,3 @@ for i in st:
             max_dl = dl
         dl = 0
 print(max_dl)
-print(dl)
