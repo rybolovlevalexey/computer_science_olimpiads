@@ -1,5 +1,5 @@
-ans = []
-for x in range(1606, 9680 + 1):
-    if x % 11 == 0 and x % 7 != 0 and x % 13 != 0 and x % 17 != 0 and x % 19 != 0:
+ans = list()
+for x in range(117649, 823542 + 1):
+    if x % 3 == 2 and x % 8 != 3 and x % 12 != 5:
         ans.append(x)
 print(len(ans), max(ans))
