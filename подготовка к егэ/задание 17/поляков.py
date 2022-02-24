@@ -1,19 +1,5 @@
 ans = list()
-for x in range(1000, 70000 + 1):
-    d1 = 0
-    num = x
-    while num > 0:
-        num //= 8
-        d1 += 1
-    if d1 != 5:
-        continue
-    d2 = 0
-    num = x
-    while num > 0:
-        num //= 5
-        d2 += 1
-    if d2 != 6:
-        continue
-    if x % 16 == 10 and x // 16 % 16 == 15:
+for x in range(10, 1178 + 1):
+    if x % 2 == 0 and x % 10 != 0 and x % 10 != 2 and x % 10 != 6 and x % 10 != 8 and x % 100 != 14:
         ans.append(x)
-print(len(ans), max(ans))
+print(sum(ans), min(ans))
