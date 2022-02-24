@@ -1,7 +1,14 @@
-num = 4**2020 + 2**2017 - 15
-cnt = 0
-while num > 0:
-    if num % 2 == 1:
-        cnt += 1
-    num //= 2
-print(cnt)
+for a in range(1000, 0, -1):
+    flag = True
+    for x in range(10000):
+        for y in range(10000):
+            if (2*x + 3*y < 30) or (x + y >= a):
+                pass
+            else:
+                flag = False
+                break
+        if not flag:
+            break
+    if flag:
+        print(a)
+        break
