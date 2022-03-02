@@ -1,16 +1,17 @@
-dp = [0] * 19
-dp[3] = 1
-num_sp = {3: ['']}
-for i in range(4, 19):
-    dp[i] = dp[i - 1] + dp[i - 2]
-    num_sp[i] = list()
-    for elem in num_sp.get(i - 1, []):
-        num_sp[i] += [elem + '1']
-    for elem in num_sp.get(i - 2, []):
-        num_sp[i] += [elem + '2']
-
-ans = 0
-for elem in num_sp[18]:
-    if elem[-2] == '2':
-        ans += 1
-print(ans)
+dp = [0] * 22
+dp[1] = 1
+for i in range(2, 11):
+    if i % 2 == 0:
+        dp[i] = dp[i - 1] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
+for i in range(10):
+    dp[i] = 0
+print(dp)
+for i in range(11, 22):
+    if i % 2 == 0:
+        dp[i] = dp[i - 1] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
