@@ -1,15 +1,15 @@
-dp = [0] * 22
-dp[1] = 1
-for i in range(2, 11):
+dp = [0] * 35
+dp[2] = 1
+for i in range(3, 13):
     if i % 2 == 0:
         dp[i] = dp[i - 1] + dp[i // 2]
     else:
         dp[i] = dp[i - 1]
 print(dp)
-for i in range(10):
+for i in range(12):
     dp[i] = 0
 print(dp)
-for i in range(11, 22):
+for i in range(13, 35):
     if i % 2 == 0:
         dp[i] = dp[i - 1] + dp[i // 2]
     else:
