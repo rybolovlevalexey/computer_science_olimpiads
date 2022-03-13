@@ -1,19 +1,19 @@
-dp = [0] * 64
-dp[1] = 1
-for i in range(2, 26):
-    if i == 6:
+dp = [0] * 56
+dp[3] = 1
+for i in range(4, 19):
+    if i == 12:
         continue
-    if i % 3 == 0:
-        dp[i] = dp[i // 3] + dp[i - 2]
+    if i % 2 == 0:
+        dp[i] = dp[i // 2] + dp[i - 1]
     else:
-        dp[i] = dp[i - 2]
+        dp[i] = dp[i - 1]
 print(dp)
-for i in range(25):
+for i in range(18):
     dp[i] = 0
 print(dp)
-for i in range(26, 64):
-    if i % 3 == 0:
-        dp[i] = dp[i // 3] + dp[i - 2]
+for i in range(19, 56):
+    if i % 2 == 0:
+        dp[i] = dp[i // 2] + dp[i - 1]
     else:
-        dp[i] = dp[i - 2]
+        dp[i] = dp[i - 1]
 print(dp)
