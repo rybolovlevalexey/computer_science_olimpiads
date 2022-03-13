@@ -1,20 +1,11 @@
-dp = [0] * 34
-dp[2] = 1
-for i in range(3, 17):
-    if i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
-    else:
-        dp[i] = dp[i - 1]
-
+dp = [0] * 13
+dp[1] = 1
+for i in range(2, 8):
+    dp[i] = dp[i - 1] + dp[i - 2]
 print(dp)
-for i in range(16):
+for i in range(7):
     dp[i] = 0
 print(dp)
-for i in range(17, 34):
-    if i == 30:
-        continue
-    if i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
-    else:
-        dp[i] = dp[i - 1]
+for i in range(8, 13):
+    dp[i] = dp[i - 1] + dp[i - 2]
 print(dp)
