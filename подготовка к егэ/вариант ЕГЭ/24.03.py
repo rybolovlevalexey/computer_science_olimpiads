@@ -1,12 +1,6 @@
-sp = ['б', 'о', 'р', 'и', 'с']
-ans = 0
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                for i5 in sp:
-                    for i6 in sp:
-                        st = i1 + i2 + i3 + i4 + i5 + i6
-                        if st.count('б') == 1 and st.count('р') == 1 and (st.count('с') == 1 or st.count('с') == 0):
-                            ans += 1
-print(ans)
+st = '1' + '9' * 98
+while '19' in st or '299' in st or '3999' in st:
+    st = st.replace('19', '2', 1)
+    st = st.replace('299', '3', 1)
+    st = st.replace('3999', '1', 1)
+print(st)
