@@ -1,7 +1,7 @@
-dp = [0] * 16
-dp[3] = 1
-for i in range(4, 16):
-    if i == 8:
+dp = [0] * 14
+dp[2] = 1
+for i in range(3, 14):
+    if i == 6:
         continue
-    dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3]
+    dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 4]
 print(dp)
