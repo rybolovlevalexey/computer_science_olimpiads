@@ -1,10 +1,7 @@
-dp = [0] * 32
-dp[1] = 1
-for i in range(2, 32):
-    if i == 25:
+dp = [0] * 16
+dp[3] = 1
+for i in range(4, 16):
+    if i == 8:
         continue
-    if (i - 1) % 2 == 0:
-        dp[i] = dp[i - 1] + dp[(i - 1) // 2]
-    else:
-        dp[i] = dp[i - 1]
+    dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3]
 print(dp)
