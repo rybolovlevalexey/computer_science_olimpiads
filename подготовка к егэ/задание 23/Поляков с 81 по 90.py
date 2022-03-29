@@ -1,7 +1,7 @@
-dp = [0] * 26
+dp = [0] * 32
 dp[1] = 1
-for i in range(2, 26):
-    if i == 21:
+for i in range(2, 32):
+    if i == 25:
         continue
     if (i - 1) % 2 == 0:
         dp[i] = dp[i - 1] + dp[(i - 1) // 2]
