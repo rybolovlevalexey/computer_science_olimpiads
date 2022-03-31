@@ -1,38 +1,26 @@
-dp = [0] * 13
-dp[1] = 1
-for i in range(2, 8):
-    if i % 2 == 0 and i - 2 >= 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
-    elif i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
-    elif i - 2 >= 0:
-        dp[i] = dp[i - 1] + dp[i - 2]
+dp = [0] * 16
+dp[2] = 1
+for i in range(3, 5):
+    if i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
     else:
-        dp[i] = dp[i - 1]
+        dp[i] = dp[i - 1] + dp[i - 2]
 print(dp)
-for i in range(7):
+for i in range(4):
     dp[i] = 0
 print(dp)
-for i in range(8, 11):
-    if i % 2 == 0 and i - 2 >= 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
-    elif i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
-    elif i - 2 >= 0:
-        dp[i] = dp[i - 1] + dp[i - 2]
+for i in range(5, 12):
+    if i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
     else:
-        dp[i] = dp[i - 1]
+        dp[i] = dp[i - 1] + dp[i - 2]
 print(dp)
-for i in range(10):
+for i in range(11):
     dp[i] = 0
 print(dp)
-for i in range(11, 13):
-    if i % 2 == 0 and i - 2 >= 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
-    elif i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
-    elif i - 2 >= 0:
-        dp[i] = dp[i - 1] + dp[i - 2]
+for i in range(12, 16):
+    if i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
     else:
-        dp[i] = dp[i - 1]
+        dp[i] = dp[i - 1] + dp[i - 2]
 print(dp)
