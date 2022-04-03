@@ -1,6 +1,3 @@
-s = 0
-k = 0
-while s < 100:
-    s += k
-    k += 4
-print(k)
+for i in range(1, 18):
+    if i % 3 == i // 3 % 3:
+        print(i)
