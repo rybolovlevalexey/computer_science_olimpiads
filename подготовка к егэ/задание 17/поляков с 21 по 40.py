@@ -1,5 +1,5 @@
 sp = list()
-for i in range(2807, 8558 + 1):
-    if i % 2 == 1 and i // 2 % 2 == 1 and i % 9 == 5:
+for i in range(1529, 9482 + 1):
+    if i % 2 == 1 and i // 2 % 2 == 0 and i % 5 == 3:
         sp.append(i)
-print(max(sp), sum(sp))
+print(min(sp), sum(sp))
