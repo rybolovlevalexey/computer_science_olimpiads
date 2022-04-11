@@ -1,10 +1,5 @@
-ans = 0
-flag = False
-
-for elem in range(1098, 13765 + 1):
-    if elem % 2 == 0 and elem % 7 != 0 and elem % 11 != 0 and elem % 13 != 0 and elem % 23 != 0:
-        ans += 1
-        if not flag:
-            flag = True
-            print(elem)
-print(ans)
+sp = list()
+for i in range(1305, 14063 + 1):
+    if (i % 2 == 0 or i % 3 == 0) and i % 7 != 0 and i % 17 != 0 and i % 11 != 0 and i % 23 != 0:
+        sp.append(i)
+print(len(sp), max(sp))
