@@ -1,5 +1,13 @@
-for x in range(2, 10):
-    for y in range(2, 10):
-        if 2*x**2 + 2*x + 5 == 4*y**2 + 5:
-            print(x)
-            break
+numbers = list()
+max_sum = 0
+cnt = 0
+for _ in range(10000):
+    numbers.append(int(input()))
+print('ok')
+for i in range(10000):
+    for j in range(i + 1, 10000):
+        if numbers[i] * numbers[j] % 34 != 0:
+            cnt += 1
+            if numbers[i] + numbers[j] > max_sum:
+                max_sum = numbers[i] + numbers[j]
+print(cnt, max_sum)
