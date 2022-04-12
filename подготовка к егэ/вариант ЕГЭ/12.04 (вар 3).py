@@ -1,8 +1,13 @@
-for n in range(2, 50):
-    cnt = 0
-    num1 = num2 = 338
-    while num1 > 0:
-        cnt += 1
-        num1 //= n
-    if num2 % n == 2 and cnt == 3:
-        print(n)
+for a in range(1, 100):
+    flag = True
+    for x in range(1, 1000):
+        for y in range(1, 1000):
+            if (x % a == 0) or not (x % 6 == 0) or not (x % 4 == 0):
+                pass
+            else:
+                flag = False
+                break
+        if not flag:
+            break
+    if flag:
+        print(a)
