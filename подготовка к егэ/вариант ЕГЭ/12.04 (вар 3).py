@@ -1,7 +1,14 @@
-print('x y z res')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            res = (not x and not y) or (z == x)
-            if not res:
-                print(int(x), int(y), int(z), int(res))
+for n in range(0, 256):
+    x = bin(n)
+    x = x[2:]
+    while len(x) < 8:
+        x = '0' + x
+    y = ''
+    for elem in x:
+        if elem == '0':
+            y += '1'
+        else:
+            y += '0'
+    res = int(y, 2)
+    if res - n == 111:
+        print(n)
