@@ -1,5 +1,10 @@
 sp = list()
-for i in range(1529, 9482 + 1):
-    if i % 2 == 1 and i // 2 % 2 == 0 and i % 5 == 3:
-        sp.append(i)
-print(min(sp), sum(sp))
+for num in range(1000, 9999 + 1):
+    n = 0
+    i = num
+    while i > 0:
+        i //= 5
+        n += 1
+    if n >= 6 and (num % 5 == 1 or num % 5 == 3) and num // 5 % 5 == 2:
+        sp.append(num)
+print(len(sp), min(sp))
