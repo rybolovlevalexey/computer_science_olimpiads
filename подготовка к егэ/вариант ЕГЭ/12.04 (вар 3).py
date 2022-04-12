@@ -1,12 +1,24 @@
-number = 500000
+file = open('26_demo.txt', 'r')
+sp = file.read().strip().split('\n')
+s, n = map(int, sp[0].split())  # свободное место на диске/количество пользователей
+del sp[0]
+summa = 0
 cnt = 0
-while cnt < 5:
-    flag = False
-    for d in range(18, number // 2, 10):
-        if number % d == 0:
-            flag = True
-            break
-    if flag:
-        print(number, d)
+last_elem = -1
+sp = sorted(map(int, sp))
+for elem in sp:
+    if summa + elem > s:
+        break
+    else:
+        summa += elem
         cnt += 1
-    number += 2
+        last_elem = elem
+print(summa, cnt)  # 8176  568
+print(last_elem)  # 29
+summa = summa - last_elem
+for i in range(567, n):
+    if summa + sp[i] > s:
+        print(sp[i - 1])
+        break
+print(summa + sp[i - 1])
+print(sp[i])
