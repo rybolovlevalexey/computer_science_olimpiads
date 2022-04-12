@@ -1,13 +1,14 @@
-for a in range(1, 100):
-    flag = True
-    for x in range(1, 1000):
-        for y in range(1, 1000):
-            if (x % a == 0) or not (x % 6 == 0) or not (x % 4 == 0):
-                pass
-            else:
-                flag = False
-                break
-        if not flag:
-            break
-    if flag:
-        print(a)
+sp = list()
+
+def f(n):
+    if n > 0:
+        g(n - 1)
+
+
+def g(n):
+    sp.append('*')
+    if n > 1:
+        f(n - 2)
+
+f(11)
+print(sp)
