@@ -1,15 +1,19 @@
-dp = [0] * 23
-dp[22] = 1
-for i in range(21, 1, -1):
-    if 0 <= i + 3 <= 22:
-        dp[i] = dp[i + 3] + dp[i + 1]
+dp = [0] * 19
+dp[2] = 1
+for i in range(3, 10):
+    if 0 <= i - 3 <= 19:
+        dp[i] = dp[i - 1] + dp[i - 3]
     else:
-        dp[i] = dp[i + 1]
+        dp[i] = dp[i - 1]
 print(dp)
-res = dp[2]
-for i in range(5, len(dp)):
-    if i % 4 == 2:
-        res += dp[i]
-    elif i % 4 == 3:
-        res += dp[i]
-print(res)
+for i in range(9):
+    dp[i] = 0
+print(dp)
+for i in range(10, 19):
+    if i == 14:
+        continue
+    if 0 <= i - 3 <= 19:
+        dp[i] = dp[i - 1] + dp[i - 3]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
