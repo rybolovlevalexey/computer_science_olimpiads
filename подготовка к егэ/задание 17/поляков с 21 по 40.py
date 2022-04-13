@@ -1,5 +1,5 @@
 sp = list()
-for i in range(2476, 7857 + 1):
-    if i % 2 == 0 and i % 8 != 0 and i // 100 % 10 <= 7:
+for i in range(3905, 7998 + 1):
+    if i % 100 // 10 not in [0, 5] and 2 <= i % 1000 // 100 <= 6:
         sp.append(i)
-print(len(sp), (min(sp) + max(sp)) // 2)
+print(len(sp), min(sp))
