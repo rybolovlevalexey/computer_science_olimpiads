@@ -1,10 +1,5 @@
 sp = list()
-for num in range(1476, 7039 + 1):
-    n = 0
-    i = num
-    while i > 0:
-        i //= 4
-        n += 1
-    if num % 2 == 0 and num % 16 != 0 and num % 100 // 10 >= 4:
-        sp.append(num)
-print(len(sp), (max(sp) + min(sp)) // 2)
+for i in range(2476, 7857 + 1):
+    if i % 2 == 0 and i % 8 != 0 and i // 100 % 10 <= 7:
+        sp.append(i)
+print(len(sp), (min(sp) + max(sp)) // 2)
