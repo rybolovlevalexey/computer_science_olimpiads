@@ -1,13 +1,15 @@
-file = open('zadanie24_2.txt', 'r')
-st = file.read().strip()
-max_dlina = 0
-dlina = 0
-for i in range(len(st)):
-    elem = st[i]
-    if elem == 'D':
-        dlina += 1
-    else:
-        if dlina > 0 and max_dlina < dlina:
-            max_dlina = dlina
-        dlina = 0
-print(max_dlina)
+num = 500000001
+n = 0
+while n < 5:
+    sp = list()
+    for d in range(2, num // 2 + 3):
+        if num % d == 0:
+            sp.append(d)
+        if len(sp) == 5:
+            break
+    if len(sp) == 5:
+        proiz = 1
+        for j in sp:
+            proiz *= j
+        n += 1
+        print(proiz)
