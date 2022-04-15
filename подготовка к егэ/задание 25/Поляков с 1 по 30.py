@@ -1,14 +1,10 @@
-sp = list()
-for num in range(126849, 126871 + 1):
-    delit = list()
-    for d in range(2, num // 2 + 2):
+for num in range(102714, 102725 + 1):
+    sp = list()
+    for d in range(2, num // 2 + 1):
         if num % d == 0:
-            delit.append(d)
-        if len(delit) >= 3:
+            sp.append(d)
+        if len(sp) >= 3:
             break
-    if len(delit) >= 3:
-        continue
-    elif len(delit) == 2:
-        delit = [1] + delit + [num]
-        sp.append(delit)
-print(*sp, sep='\n')
+    if len(sp) == 2:
+        sp = [1] + sp + [num]
+        print(sp)
