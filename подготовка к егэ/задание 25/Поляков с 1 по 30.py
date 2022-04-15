@@ -5,6 +5,7 @@ for num in range(102714, 102725 + 1):
             sp.append(d)
         if len(sp) >= 3:
             break
+
     if len(sp) == 2:
         sp = [1] + sp + [num]
         print(sp)
