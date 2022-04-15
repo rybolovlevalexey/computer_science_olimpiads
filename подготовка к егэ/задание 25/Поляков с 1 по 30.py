@@ -1,4 +1,4 @@
-for num in range(102714, 102725 + 1):
+for num in range(154026, 154043 + 1):
     sp = list()
     for d in range(2, num // 2 + 1):
         if num % d == 0:
