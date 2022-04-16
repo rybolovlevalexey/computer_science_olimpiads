@@ -1,5 +1,6 @@
-file = open('Zimnii_EGE_27_A.txt', 'r')
+file = open('Zimnii_EGE_27_B.txt', 'r')
 sp = file.read().strip().split('\n')
+del sp[0]
 for i in range(len(sp)):
     sp[i] = list(map(int, sp[i].split()))
 summa = 0
@@ -15,6 +16,8 @@ for i in range(len(sp)):
         delts.append([(max(elem) - min(elem)), i])
 
 print(delts)
+print(min(delts, key=lambda x: x[0]))
+print(summa % 4 == 0)
 index = min(delts, key=lambda x: x[0])[1]
 new_sum = 0
 for j in range(len(sp)):
