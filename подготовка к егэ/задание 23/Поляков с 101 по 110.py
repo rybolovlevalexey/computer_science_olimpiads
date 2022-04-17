@@ -1,26 +1,28 @@
-dp = [0] * 28
-dp[3] = 1
-deyst = {3: ['']}
-for i in range(4, 28):
-    deyst[i] = list()
-    if i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i - 4] + dp[i // 2]
-        for elem in deyst.get(i - 1, []):
-            deyst[i] += [elem + '1']
-        for elem in deyst.get(i - 4, []):
-            deyst[i] += [elem + '2']
-        for elem in deyst.get(i // 2, []):
-            deyst[i] += [elem + '3']
+dp = [0] * 29
+dp[1] = 1
+for i in range(2, 9):
+    if i - 2 >= 0 and i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
+    elif i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i // 3]
+    elif i - 2 >= 0:
+        dp[i] = dp[i - 1] + dp[i - 2]
     else:
-        dp[i] = dp[i - 1] + dp[i - 4]
-        for elem in deyst.get(i - 1, []):
-            deyst[i] += [elem + '1']
-        for elem in deyst.get(i - 4, []):
-            deyst[i] += [elem + '2']
+        dp[i] = dp[i - 1]
 print(dp)
-print(len(deyst[27]))
-cnt = 0
-for elem in deyst[27]:
-    if len(elem) == 7:
-        cnt += 1
-print(cnt)
+for i in range(8):
+    dp[i] = 0
+print(dp)
+for i in range(9, 29):
+    if i == 10 or i == 11:
+        continue
+    if i - 2 >= 0 and i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
+    elif i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i // 3]
+    elif i - 2 >= 0:
+        dp[i] = dp[i - 1] + dp[i - 2]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
+print(dp[28])
