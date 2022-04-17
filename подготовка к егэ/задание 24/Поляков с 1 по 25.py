@@ -1,4 +1,4 @@
-file = open('24data/k7data/k7-5.txt')
+file = open('24data/k7data/k7-20.txt')
 st = file.read().strip()
 mdlin = None
 dlina = 0
