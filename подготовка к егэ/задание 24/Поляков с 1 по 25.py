@@ -1,14 +1,13 @@
-file = open('24data/k7data/k7-20.txt')
+file = open('24data/k7data/k7-25.txt')
 st = file.read().strip()
-mdlin = None
-dlina = 0
-print(st)
+mxdl = 0
+dl = 0
 for i in range(len(st)):
     if st[i] == 'C':
-        dlina += 1
+        dl += 1
     else:
-        if dlina != 0:
-            if mdlin is None or mdlin < dlina:
-                mdlin = dlina
-            dlina = 0
-print(dlina, mdlin)
+        if dl != 0:
+            if mxdl < dl:
+                mxdl = dl
+        dl = 0
+print(mxdl, dl)
