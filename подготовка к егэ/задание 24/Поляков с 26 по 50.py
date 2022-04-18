@@ -1,13 +1,15 @@
-spisok = ['B', 'C', 'D', 'F']
-file = open('24data/k7data/k7a-6.txt')
+file = open('24data/k7data/k7b-1.txt')
 st = file.read().strip()
-mxdl = 0
+letters = {0: 'E', 1:'A', 2:'B'}
+num = 0  # 0-E, 1-A, 2-B
 dl = 0
-for i in range(len(st)):
-    if st[i] in spisok:
+mxdl = 0
+for elem in st:
+    if elem == letters[num]:
         dl += 1
     else:
-        if dl != 0 and mxdl < dl:
+        if dl > mxdl:
             mxdl = dl
         dl = 0
+    num = (num + 1) % 3
 print(mxdl, dl)
