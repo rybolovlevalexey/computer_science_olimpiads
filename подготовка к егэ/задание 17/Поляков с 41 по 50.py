@@ -1,5 +1,5 @@
 sp = list()
-for num in range(2495, 7083 + 1):
-    if (num % 16 == 10 or num % 16 == 15) and num // 16 % 16 == 1 and num % 5 != 0 and num % 9 != 0:
+for num in range(3721, 7752 + 1):
+    if num % 3 == 0 and (num % 2 != 0 or (num // 2) % 2 != 0 or ((num // 2) // 2) % 2 != 0):
         sp.append(num)
 print(len(sp), min(sp))
