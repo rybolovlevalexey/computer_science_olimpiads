@@ -1,15 +1,19 @@
-sp = list()
-for num in range(1000000):
-    a = 0
-    b = 0
-    x = num
-    while x > 0:
-        d = x % 10
-        if d > 4:
-            a += 1
-        if d < 7:
-            b += 1
-        x = x // 10
-    if a == 2 and b == 3:
-        sp.append(num)
-print(max(sp))
+cnt = 0
+for n in range(1, 10000):
+    r = n
+    if n % 6 == 0:
+        r //= 3
+    else:
+        r -= 1
+    if r % 5 == 0:
+        r //= 5
+    else:
+        r -= 1
+    if r % 3 == 0:
+        r //= 3
+    else:
+        r -= 1
+    if r == 4:
+        print(n)
+        cnt += 1
+print(cnt)
