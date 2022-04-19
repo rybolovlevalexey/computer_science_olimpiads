@@ -1,8 +1,16 @@
-st = '>' + '1'*30 + '2'*20 + '3'*10
-while '>1' in st or '>2' in st or '>3' in st:
-    st = st.replace('>1', '2>3', 1)
-    st = st.replace('>2', '33>', 1)
-    st = st.replace('>3', '1>22', 1)
-print(st.count('1') + st.count('2') * 2 + st.count('3') * 3)
-st = st[:st.index('>')] + st[st.index('>') + 1:]
-print(sum(map(int, list(st))))
+for num in range(100000, 10000, -1):
+    x = num
+    a = 0
+    b = 0
+    while x > 0:
+        y = x % 10
+        if y > 3:
+            a = a + 1
+        else:
+            b = b - 1
+        if y < 8:
+            b = b + 1
+        x = x // 10
+    if a == 2 and b == 1:
+        print(num)
+        break
