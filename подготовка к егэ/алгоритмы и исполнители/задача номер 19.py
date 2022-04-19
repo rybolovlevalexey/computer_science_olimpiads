@@ -1,19 +1,9 @@
-cnt = 0
-for n in range(1, 10000):
-    r = n
-    if n % 6 == 0:
-        r //= 3
-    else:
-        r -= 1
-    if r % 5 == 0:
-        r //= 5
-    else:
-        r -= 1
-    if r % 3 == 0:
-        r //= 3
-    else:
-        r -= 1
-    if r == 4:
-        print(n)
-        cnt += 1
-print(cnt)
+ans = set()
+for num in range(128, 256):
+    r = list(bin(num)[2:])
+    r[3], r[4] = r[4], r[3]
+    r[4], r[5] = r[5], r[4]
+    r = int(''.join(r), 2)
+    res = r - num
+    ans.add(res)
+print(len(ans))
