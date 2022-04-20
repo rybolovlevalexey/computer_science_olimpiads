@@ -1,10 +1,12 @@
-file = open('zadanie_17.txt', 'r')
-sp = list(map(int, file.read().strip().split('\n')))
 cnt = 0
-mxsm = 0
-for i in range(len(sp) - 1):
-    if sp[i] % 16 == 14 or sp[i + 1] == 14:
+for num in range(100000):
+    x = num
+    a = b = 0
+    while x > 0:
+        a += 1
+        b = b + (x % 100)
+        x = x // 100
+    if a == 2 and b == 12:
         cnt += 1
-        if sp[i] + sp[i + 1] > mxsm:
-            mxsm = sp[i] + sp[i + 1]
-print(cnt, mxsm)
+        print(num)
+print(cnt)
