@@ -1,13 +1,14 @@
-for a in range(15, 30):
-    flag = True
-    for x in range(10000):
-        for y in range(10000):
-            res = (5*x + 3*y != 60) or ((a > x) and (a > y)) and (5*x + 3*y == 60) or ((a > x) and (a > y))
-            if not res:
-                flag = False
-                break
-        if not flag:
-            break
-    if flag:
-        print(a)
-        break
+def f(n):
+    if n == 1:
+        return 1
+    else:
+        return 3*f(n - 1) + g(n - 1) - n + 5
+
+def g(n):
+    if n == 1:
+        return 1
+    else:
+        return f(n - 1) + 3*g(n - 1) - 3*n
+
+
+print(f(14)+g(14))
