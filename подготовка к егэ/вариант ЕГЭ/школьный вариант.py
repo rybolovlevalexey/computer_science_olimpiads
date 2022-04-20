@@ -1,8 +1,7 @@
-n = 1
-for i1 in ['К', 'О', 'Т']:
-    for i2 in ['К', 'О', 'Т']:
-        for i3 in ['К', 'О', 'Т']:
-            st = i1 + i2 + i3
-            if n == 22:
-                print(st)
-            n += 1
+st = '5' * 69
+while '333' in st or '555' in st:
+    if '555' in st:
+        st = st.replace('555', '3', 1)
+    else:
+        st = st.replace('333', '5', 1)
+print(st)
