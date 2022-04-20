@@ -1,7 +1,7 @@
-st = '5' * 69
-while '333' in st or '555' in st:
-    if '555' in st:
-        st = st.replace('555', '3', 1)
-    else:
-        st = st.replace('333', '5', 1)
-print(st)
+num = 16**25 - 2**32 - 32
+cnt = 0
+while num > 0:
+    if num % 4 == 3:
+        cnt += 1
+    num //= 4
+print(cnt)
