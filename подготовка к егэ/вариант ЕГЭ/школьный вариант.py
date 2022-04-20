@@ -1,8 +1,15 @@
-print('x y z w res')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            for w in [True, False]:
-                res = not w or (x or not z) and (not x or not y or z) and not w or (x or not z) and (not x or not y or z)
-                if not res:
-                    print(int(x), int(y), int(z), int(w), int(res))
+for num in range(1000):
+    n = num
+    r = bin(n)[2:]
+    if r.count('1') % 2 == 0:
+        r += '0'
+    else:
+        r += '1'
+    if r.count('1') % 2 == 0:
+        r += '0'
+    else:
+        r += '1'
+    r = int(r, 2)
+    if r > 96:
+        print(num)
+        break
