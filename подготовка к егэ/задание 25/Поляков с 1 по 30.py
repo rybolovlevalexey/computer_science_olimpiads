@@ -1,11 +1,10 @@
-for num in range(154026, 154043 + 1):
-    sp = list()
+for num in range(209834, 209857 + 1):
+    sp = [1]
     for d in range(2, num // 2 + 1):
         if num % d == 0:
             sp.append(d)
-        if len(sp) >= 3:
+        if len(sp) >= 4:
             break
-
-    if len(sp) == 2:
-        sp = [1] + sp + [num]
-        print(sp)
+    sp.append(num)
+    if len(sp) == 4:
+        print(*sp)
