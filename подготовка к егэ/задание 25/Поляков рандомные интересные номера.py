@@ -1,12 +1,13 @@
-def is_prost(x):
-    for d in range(2, x // 2 + 1):
-        if x % d == 0:
-            return False
-    return True
-
-
-cnt = 1
-for num in range(3, 200000, 2):
-    if is_prost(num):
-        cnt += 1
-print(cnt)
+num = 2
+while num <= 263000:
+    s = 1 + num
+    for d in range(2, num // 2 + 1):
+        if num % d == 0:
+            s += d
+    su = 1 + s
+    for d in range(2, s // 2 + 1):
+        if s % d == 0:
+            su += d
+    if num * 2 == su:
+        print(num)
+    num *= 2
