@@ -5,8 +5,8 @@ def is_prost(x):
     return True
 
 
-cnt = 0
-for num in range(2, 20000):
+cnt = 1
+for num in range(3, 200000, 2):
     if is_prost(num):
         cnt += 1
 print(cnt)
