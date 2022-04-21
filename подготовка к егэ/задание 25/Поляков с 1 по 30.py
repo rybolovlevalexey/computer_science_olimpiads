@@ -1,4 +1,4 @@
-for num in range(209834, 209857 + 1):
+for num in range(150750, 150764 + 1):
     sp = [1]
     for d in range(2, num // 2 + 1):
         if num % d == 0:
