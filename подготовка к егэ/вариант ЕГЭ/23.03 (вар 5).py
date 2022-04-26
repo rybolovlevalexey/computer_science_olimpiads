@@ -1,6 +1,9 @@
-print('x y z res')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            res = not z and x
-            print(int(x), int(y), int(z), int(res))
+for num in range(1, 1000):
+    n = num
+    r = bin(n)[2:]
+    r += str(sum(map(int, list(r))) % 2)
+    r += str(sum(map(int, list(r))) % 2)
+    r = int(r, 2)
+    if r > 97:
+        print(num)
+        break
