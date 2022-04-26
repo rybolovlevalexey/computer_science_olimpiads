@@ -1,11 +1,12 @@
-file = open('24.txt', 'r')
-st = file.read().strip()
-indexes = list()
-for i in range(len(st)):
-    if st[i] == 'A':
-        indexes.append(i)
-mxdl = 0
-for i in range(len(indexes) - 2):
-    if indexes[i + 2] - indexes[i] - 1 > mxdl:
-        mxdl = indexes[i + 2] - indexes[i] - 1
-print(mxdl)
+def is_prost(x):
+    for d in range(2, x // 2 + 2):
+        if x % d == 0:
+            return False
+    return True
+
+
+cnt = 1
+for num in range(2422000, 2422080 + 1):
+    if is_prost(num):
+        print(cnt, num)
+        cnt += 1
