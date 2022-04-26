@@ -1,14 +1,10 @@
-for num in range(101, 10000):
-    x = num
-    L = x
-    M = 65
-    if L % 2 == 0:
-        M = 52
-    while M != L:
-        if L > M:
-            L -= M
-        else:
-            M -= L
-    if M == 26:
-        print(num)
-        break
+dp = [0] * 28
+dp[1] = 1
+for i in range(2, 28):
+    if i == 26:
+        continue
+    if (i - 1) % 2 == 0:
+        dp[i] = dp[(i - 1) // 2] + dp[i - 1]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
