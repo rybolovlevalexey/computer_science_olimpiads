@@ -1,12 +1,14 @@
-file = open('17 (4).txt')
-sp = file.read().strip().split('\n')
-sp = list(map(int, sp))
-cnt = 0
-mxsm = 0
-for i in range(len(sp) - 1):
-    for j in range(i + 1, len(sp)):
-        if (sp[i] + sp[j]) % 2 != 0 and (sp[i] * sp[j]) % 5 == 0:
-            cnt += 1
-            if (sp[i] + sp[j]) > mxsm:
-                mxsm = (sp[i] + sp[j])
-print(cnt, mxsm)
+for num in range(101, 10000):
+    x = num
+    L = x
+    M = 65
+    if L % 2 == 0:
+        M = 52
+    while M != L:
+        if L > M:
+            L -= M
+        else:
+            M -= L
+    if M == 26:
+        print(num)
+        break
