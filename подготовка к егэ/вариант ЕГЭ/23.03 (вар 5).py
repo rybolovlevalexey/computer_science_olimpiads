@@ -1,10 +1,11 @@
-dp = [0] * 28
-dp[1] = 1
-for i in range(2, 28):
-    if i == 26:
-        continue
-    if (i - 1) % 2 == 0:
-        dp[i] = dp[(i - 1) // 2] + dp[i - 1]
-    else:
-        dp[i] = dp[i - 1]
-print(dp)
+file = open('24.txt', 'r')
+st = file.read().strip()
+indexes = list()
+for i in range(len(st)):
+    if st[i] == 'A':
+        indexes.append(i)
+mxdl = 0
+for i in range(len(indexes) - 2):
+    if indexes[i + 2] - indexes[i] - 1 > mxdl:
+        mxdl = indexes[i + 2] - indexes[i] - 1
+print(mxdl)
