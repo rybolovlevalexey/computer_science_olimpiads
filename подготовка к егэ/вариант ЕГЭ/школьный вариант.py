@@ -1,12 +1,10 @@
-cnt = 0
-for num in range(100000):
-    x = num
-    a = b = 0
-    while x > 0:
-        a += 1
-        b = b + (x % 100)
-        x = x // 100
-    if a == 2 and b == 12:
-        cnt += 1
-        print(num)
-print(cnt)
+dp = [0] * 32
+dp[1] = 1
+for i in range(2, 32):
+    if i == 25:
+        continue
+    if (i - 1) % 2 == 0:
+        dp[i] = dp[(i - 1) // 2] + dp[i - 1]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
