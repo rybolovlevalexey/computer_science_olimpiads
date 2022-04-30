@@ -1,10 +1,7 @@
-cnt = 0
-for i1 in [1, 2, 3, 4]:
-    for i2 in [1, 2, 3, 4]:
-        for i3 in [1, 2, 3, 4]:
-            for i4 in [1, 2, 3, 4]:
-                for i5 in [1, 2, 3, 4]:
-                    st = str(i1) + str(i2) + str(i3) + str(i4) + str(i5)
-                    if st.count('1') == 2:
-                        cnt += 1
-print(cnt)
+st = 54 * '5' + '7'
+while '722' in st or '557' in st:
+    if '722' in st:
+        st = st.replace('722', '57', 1)
+    else:
+        st = st.replace('557', '72', 1)
+print(st)
