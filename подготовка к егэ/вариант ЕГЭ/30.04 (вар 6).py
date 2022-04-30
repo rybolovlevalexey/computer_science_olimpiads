@@ -1,12 +1,13 @@
-for num in range(100000, 0, -1):
-    x = num
-    L = 0
-    M = 0
-    while x > 0:
-        L += 1
-        if x % 2 == 0:
-            M = M + (x % 10) // 2
-        x = x // 10
-    if L == 3 and M == 7:
-        print(num)
-        break
+numbers = set()
+start = 2
+
+for i1 in [1, 2]:
+    numbers.add(start + i1)
+    for i2 in [1, 2]:
+        numbers.add(start + i1 + i2)
+        for i3 in [1, 2]:
+            numbers.add(start + i1 + i2 + i3)
+            for i4 in [1, 2]:
+                numbers.add(start + i1 + i2 + i3 + i4)
+print(numbers)
+print(len(numbers))
