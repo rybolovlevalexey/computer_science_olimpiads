@@ -1,5 +1,6 @@
-n = int(input())
-r = bin(n)[2:]
-print(r)
-r = (8 - len(r)) * '0' + r
-print(int('00111000', 2))
+s = 5
+k = 0
+while k < 15:
+    k += 2
+    s += k
+print(s)
