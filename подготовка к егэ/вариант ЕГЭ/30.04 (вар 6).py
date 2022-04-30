@@ -1,13 +1,19 @@
-file = open('17 (5).txt', 'r')
-sp = file.read().strip().split('\n')
-sp = list(map(int, sp))
-cnt = 0
+file = open('18.txt', 'r')
+sp = [float(i) for i in file.read().strip().split('\n')]
 mxsm = 0
 
-for i in range(len(sp)):
-    for j in range(i + 1, len(sp)):
-        if (sp[i] + sp[j]) % 10 == 0:
-            cnt += 1
-            if sp[i] + sp[j] > mxsm:
-                mxsm = sp[i] + sp[j]
-print(cnt, mxsm)
+for i in range(len(sp) - 1):
+    sm = 0
+    ind = i
+    sm += sp[ind]
+    while True:
+        if ind + 1 == len(sp):
+            break
+        if abs(sp[ind] - sp[ind + 1]) <= 10:
+            ind += 1
+            sm += sp[ind]
+        else:
+            break
+    if sm > mxsm:
+        mxsm = sm
+print(mxsm, sm)
