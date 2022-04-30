@@ -1,6 +1,5 @@
-print('x y z res')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            res = not z and x or x and y
-            print(int(x), int(y), int(z), int(res))
+n = int(input())
+r = bin(n)[2:]
+print(r)
+r = (8 - len(r)) * '0' + r
+print(int('00111000', 2))
