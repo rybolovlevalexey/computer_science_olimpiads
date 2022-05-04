@@ -1,11 +1,10 @@
-def f(n):
-    if n < 4:
-        return n - 1
-    elif n >= 4 and n % 3 == 0:
-        return n + 2*f(n - 1)
-    elif n >= 4 and n % 3 != 0:
-        return f(n - 2) + f(n - 3)
-
-res = f(25)
-print(res)
-print(sum(list(map(int, list(str(res))))))
+file = open('zadanie_17.txt', 'r')
+sp = map(int, file.read().strip().split('\n'))
+cnt = 0
+ans = 0
+for num in sp:
+    if num % 5 == 0 and num % 6 != 0 and num % 10 != 0 and num % 15 != 0 and num % 16 != 0:
+        cnt += 1
+        if ans == 0 or ans < num:
+            ans = num
+print(cnt, ans)
