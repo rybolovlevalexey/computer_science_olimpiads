@@ -1,14 +1,12 @@
-dp = [0] * 65
-dp[2] = 1
-for i in range(3, 65):
-    if i == 8:
-        continue
-    if int(i ** 0.5) == i**0.5 and i % 2 == 0:
-        dp[i] = dp[i - 2] + dp[i // 2] + dp[int(i ** 0.5)]
-    elif i % 2 == 0:
-        dp[i] = dp[i - 2] + dp[i // 2]
-    elif int(i ** 0.5) == i**0.5:
-        dp[i] = dp[i - 2] + dp[int(i ** 0.5)]
-    else:
-        dp[i] = dp[i - 2]
-print(dp)
+file = open('zadanie_24.txt', 'r')
+ans = 0
+st = file.read().strip()
+
+for i in range(len(st) - 2):
+    i1 = st[i]
+    i2 = st[i + 1]
+    i3 = st[i + 2]
+    if i1 in ['B', 'C', 'D'] and i2 in ['B', 'D', 'E'] and i1 != i2 and i3 in ['B', 'C', 'E'] and i2 != i3:
+        ans += 1
+print(ans)
+print(len(st))
