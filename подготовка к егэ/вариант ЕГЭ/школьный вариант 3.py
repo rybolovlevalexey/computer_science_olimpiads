@@ -1,8 +1,14 @@
-for num in range(3, 10000):
-    n = num
-    r = bin(n)[2:]
-    r = r + r[1] + r[0]
-    r = int(r, 2)
-    if 90 < r:
+ans = 0
+for num in range(1, 100000):
+    d = num
+    n = 27
+    s = 12
+    while s <= 2019:
+        s += d
+        n += 16
+    if n == 171:
+        ans += 1
         print(num)
-        break
+    if num % 100 == 0:
+        print(num)
+print(ans)
