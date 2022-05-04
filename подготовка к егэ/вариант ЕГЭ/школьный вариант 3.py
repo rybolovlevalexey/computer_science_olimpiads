@@ -1,12 +1,14 @@
-ans = 0
-for num in range(1, 100000):
-    x = num
-    a = b = 0
-    while x > 0:
-        a += 1
-        b = b + (x % 100)
-        x = x // 100
-    if a == 2 and b == 15:
-        ans = num
-        print(num)
-print(ans)
+dp = [0] * 65
+dp[2] = 1
+for i in range(3, 65):
+    if i == 8:
+        continue
+    if int(i ** 0.5) == i**0.5 and i % 2 == 0:
+        dp[i] = dp[i - 2] + dp[i // 2] + dp[int(i ** 0.5)]
+    elif i % 2 == 0:
+        dp[i] = dp[i - 2] + dp[i // 2]
+    elif int(i ** 0.5) == i**0.5:
+        dp[i] = dp[i - 2] + dp[int(i ** 0.5)]
+    else:
+        dp[i] = dp[i - 2]
+print(dp)
