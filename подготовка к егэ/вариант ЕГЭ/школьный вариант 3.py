@@ -1,5 +1,7 @@
-st = 121 * '563'
-while '56' in st or '3333' in st:
-    st = st.replace('56', '3', 1)
-    st = st.replace('3333', '3', 1)
-print(st)
+num = 9**7 + 3**21 - 19
+cnt = 0
+while num > 0:
+    if num % 3 == 2:
+        cnt += 1
+    num //= 3
+print(cnt)
