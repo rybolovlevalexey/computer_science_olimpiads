@@ -1,14 +1,11 @@
-ans = 0
-for num in range(1, 100000):
-    d = num
-    n = 27
-    s = 12
-    while s <= 2019:
-        s += d
-        n += 16
-    if n == 171:
-        ans += 1
-        print(num)
-    if num % 100 == 0:
-        print(num)
-print(ans)
+cnt = 0
+sp = ['а', 'р', 'б', 'у', 'з']
+for i1 in sp:
+    for i2 in sp:
+        for i3 in sp:
+            for i4 in sp:
+                for i5 in sp:
+                    st = i1 + i2 + i3 + i4 + i5
+                    if st.count('р') >= 2:
+                        cnt += 1
+print(cnt)
