@@ -1,12 +1,10 @@
-file = open('zadanie_24.txt', 'r')
-ans = 0
-st = file.read().strip()
+def is_prost(x):
+    for d in range(2, x // 2 + 1):
+        if x % d == 0:
+            return False
+    return True
 
-for i in range(len(st) - 2):
-    i1 = st[i]
-    i2 = st[i + 1]
-    i3 = st[i + 2]
-    if i1 in ['B', 'C', 'D'] and i2 in ['B', 'D', 'E'] and i1 != i2 and i3 in ['B', 'C', 'E'] and i2 != i3:
-        ans += 1
-print(ans)
-print(len(st))
+
+for num in range(152346, 957812 + 1):
+    if int(num ** 0.25) == num ** 0.25 and is_prost(int(num**0.25)):
+        print(num, int((num ** 0.25)**3))
