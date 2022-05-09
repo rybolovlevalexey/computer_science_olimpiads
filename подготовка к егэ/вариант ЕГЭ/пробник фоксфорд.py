@@ -1,9 +1,11 @@
-for num in range(1000000, 0, -1):
-    w = num
-    n = 1
-    while w < 120:
-        w += 15
-        n = n * 2 + 2
-    if n == 94:
-        print(num)
-        break
+sp = ['к', 'а', 'с', 'т']
+cnt = 0
+for i1 in sp:
+    for i2 in sp:
+        for i3 in sp:
+            for i4 in sp:
+                for i5 in sp:
+                    st = i1 + i2 + i3 + i4 + i5
+                    if st.count('к') == 1 or st.count('к') == 2:
+                        cnt += 1
+print(cnt)
