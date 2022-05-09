@@ -1,11 +1,7 @@
-sp = ['к', 'а', 'с', 'т']
-cnt = 0
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                for i5 in sp:
-                    st = i1 + i2 + i3 + i4 + i5
-                    if st.count('к') == 1 or st.count('к') == 2:
-                        cnt += 1
-print(cnt)
+st = 110 * '6' + 23 * '5'
+while '6666' in st or '5555' in st:
+    if '6666' in st:
+        st = st.replace('6666', '55', 1)
+    if '5555' in st:
+        st = st.replace('5555', '66', 1)
+print(st)
