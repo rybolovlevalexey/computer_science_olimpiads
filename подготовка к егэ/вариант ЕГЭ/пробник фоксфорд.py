@@ -1,10 +1,10 @@
-def f(n):
-    if n == 1 or n == 2 or n == 3:
-        return n
-    elif n % 3 == 0 and n > 3:
-        return n + f(n - 1) + f(n - 2) + 3
-    elif n > 3 and n % 3 != 0:
-        return 1 + f(n - 2) + f(n - 1) + n
-
-
-print(f(13))
+file = open('273361.txt', 'r')
+sp = list(map(int, file.read().strip().split('\n')))
+cnt = 0
+mn = None
+for i in range(len(sp) - 1):
+    if (sp[i] + sp[i + 1]) % 5 == 0:
+        cnt += 1
+        if mn is None or mn > (sp[i] + sp[i + 1]):
+            mn = (sp[i] + sp[i + 1])
+print(cnt, mn)
