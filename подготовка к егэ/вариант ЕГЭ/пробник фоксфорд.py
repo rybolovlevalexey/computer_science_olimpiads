@@ -1,20 +1,32 @@
-file = open('Zadanie-273949.txt', 'r')
-sp = file.read().strip().split('\n')
-s, n = map(int, sp[0].split())
+def is_prost(x):
+    for d in range(2, int(x ** 0.5) + 1):
+        if x % d == 0:
+            return False
+    return True
+
+
+file = open('Zadanie-273978_A.txt', 'r')
+sp = list(map(int, file.read().strip().split('\n')))
+n = sp[0]
 del sp[0]
-sp = sorted(list(filter(lambda x: x % 2 == 0, map(int, sp))))
-summa = 0
-cnt = 0
-lstfl = 0
+prostye = [0] * n
 for i in range(len(sp)):
-    if sp[i] + summa > s:
-        break
-    summa += sp[i]
-    cnt += 1
-    lstfl = sp[i]
-print(s, summa, cnt, lstfl)
-summa -= lstfl
-for i in range(len(sp)):
-    if sp[i] + summa <= s and sp[i + 1] + summa > s:
-        print(sp[i], sp[i] + summa)
-        break
+    if is_prost(sp[i]):
+        prostye[i] = 1
+indexes = list()
+for i in range(len(prostye)):
+    if prostye[i] == 1:
+        indexes.append(i)
+print(indexes)
+i1 = 0
+
+mxsm = 0
+while i1 + 2 <= 6:
+    i2 = i1 + 2
+    summa = sum(sp[i1: i2])
+    if summa > mxsm:
+        mxsm = summa
+    i1 += 1
+print(mxsm)
+print(sum(sp))
+print(sum(sp[31:]))
