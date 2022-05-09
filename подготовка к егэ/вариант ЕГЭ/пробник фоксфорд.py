@@ -1,10 +1,13 @@
-file = open('273361.txt', 'r')
-sp = list(map(int, file.read().strip().split('\n')))
-cnt = 0
-mn = None
-for i in range(len(sp) - 1):
-    if (sp[i] + sp[i + 1]) % 5 == 0:
-        cnt += 1
-        if mn is None or mn > (sp[i] + sp[i + 1]):
-            mn = (sp[i] + sp[i + 1])
-print(cnt, mn)
+for num in range(1000, 9999):
+    x = num
+    a = 0
+    b = 1
+    while x > 0:
+        if x % 2 == 0:
+            a += x % 8
+        else:
+            b *= x % 8
+        x //= 8
+    if a == 12 and b == 1:
+        print(num)
+        break
