@@ -1,7 +1,8 @@
-st = 110 * '6' + 23 * '5'
-while '6666' in st or '5555' in st:
-    if '6666' in st:
-        st = st.replace('6666', '55', 1)
-    if '5555' in st:
-        st = st.replace('5555', '66', 1)
-print(st)
+num = 36**30 + 6**22 + 3 * 6**6 - 25
+cnt = 0
+print(num)
+while num > 0:
+    if num % 6 == 5:
+        cnt += 1
+    num //= 6
+print(cnt)
