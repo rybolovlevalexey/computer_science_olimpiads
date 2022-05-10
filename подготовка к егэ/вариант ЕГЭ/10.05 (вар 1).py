@@ -1,10 +1,10 @@
-for num in range(1, 1000):
-    n = num
-    r = bin(n)[2:]
-    if n % 2 == 0:
-        r = '1' + r + '0'
-    else:
-        r = '11' + r + '11'
-    if int(r, 2) > 52:
+for num in range(100000, 0, -1):
+    s = num
+    s = s // 10
+    n = 1
+    while s < 51:
+        s += 5
+        n = n * 2
+    if n == 64:
         print(num)
         break
