@@ -1,21 +1,14 @@
-file = open('28140.txt', 'r')
+file = open('27-A.txt', 'r')
 sp = file.read().strip().split('\n')
-s, n = map(int, sp[0].split())
+n = int(sp[0])
 del sp[0]
-sp = sorted(list(map(int, sp)))
-summa = 0
-cnt = 0
-indfl = 0
-
+sp = sorted(list(map(int, sp)))[::-1]
+ostatki = list()
+for elem in sp:
+    ostatki.append(elem % 3)
+#print(ostatki)
+#print(sp)
+d = dict()
 for i in range(n):
-    if summa + sp[i] <= s:
-        cnt += 1
-        summa += sp[i]
-        indfl = i
-    else:
-        break
-print(cnt)
-summa -= sp[indfl]
-for i in range(n - 1):
-    if sp[i] + summa <= s and sp[i + 1] + summa > s:
-        print(sp[i])
+    d[sp[i]] = ostatki[i]
+print(d)
