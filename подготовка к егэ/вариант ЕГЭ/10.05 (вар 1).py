@@ -1,27 +1,23 @@
-file = open('24 (2).txt', 'r')
-sp = file.read().strip().split('\n')
+def is_prost(y):
+    for z in range(2, int(y**0.5)+1):
+        if y % z == 0:
+            return False
+    return True
 
-cntg = None
-ansst = ''
-for i in range(len(sp)):
-    elem = sp[i]
-    if cntg is None or cntg > elem.count('G'):
-        cntg = elem.count('G')
-        ansst = elem
-print(cntg)
 
-dletters = dict()
-for let in ansst:
-    if let in dletters:
-        dletters[let] += 1
-    else:
-        dletters[let] = 1
-print(dletters)
-mxcn = 0
-ans = ''
-for key in sorted(dletters.keys())[::-1]:
-    if dletters[key] > mxcn:
-        mxcn = dletters[key]
-        ans = key
-print(mxcn)
-print(ans)
+delit = 0
+for num in range(35000000, 40000000 + 1):
+    x = num
+    while x % 2 == 0:
+        x //= 2
+    for d in range(3, int(x**0.5) + 1, 2):
+        if x % d == 0 and d**4 == x:
+            delit = d
+            print(num)
+            break
+        elif x % d == 0 and d**4 != x:
+            break
+    if num % 100000 == 0:
+        print(f'{num} - продолжаем выполнение')
+    if delit != 0:
+        break
