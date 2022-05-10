@@ -1,27 +1,27 @@
-dp = [0] * 45
-dp[2] = 1
-for i in range(3, 14):
-    if i % 6 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2] + dp[i // 3]
-    elif i % 3 == 0:
-        dp[i] = dp[i - 1] + dp[i // 3]
-    elif i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
+file = open('24 (2).txt', 'r')
+sp = file.read().strip().split('\n')
+
+cntg = None
+ansst = ''
+for i in range(len(sp)):
+    elem = sp[i]
+    if cntg is None or cntg > elem.count('G'):
+        cntg = elem.count('G')
+        ansst = elem
+print(cntg)
+
+dletters = dict()
+for let in ansst:
+    if let in dletters:
+        dletters[let] += 1
     else:
-        dp[i] = dp[i - 1]
-print(dp)
-for i in range(13):
-    dp[i] = 0
-print(dp)
-for i in range(14, 45):
-    if i == 29:
-        continue
-    if i % 6 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2] + dp[i // 3]
-    elif i % 3 == 0:
-        dp[i] = dp[i - 1] + dp[i // 3]
-    elif i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
-    else:
-        dp[i] = dp[i - 1]
-print(dp)
+        dletters[let] = 1
+print(dletters)
+mxcn = 0
+ans = ''
+for key in sorted(dletters.keys())[::-1]:
+    if dletters[key] > mxcn:
+        mxcn = dletters[key]
+        ans = key
+print(mxcn)
+print(ans)
