@@ -1,23 +1,21 @@
-def is_prost(y):
-    for z in range(2, int(y**0.5)+1):
-        if y % z == 0:
-            return False
-    return True
+file = open('28140.txt', 'r')
+sp = file.read().strip().split('\n')
+s, n = map(int, sp[0].split())
+del sp[0]
+sp = sorted(list(map(int, sp)))
+summa = 0
+cnt = 0
+indfl = 0
 
-
-delit = 0
-for num in range(35000000, 40000000 + 1):
-    x = num
-    while x % 2 == 0:
-        x //= 2
-    for d in range(3, int(x**0.5) + 1, 2):
-        if x % d == 0 and d**4 == x:
-            delit = d
-            print(num)
-            break
-        elif x % d == 0 and d**4 != x:
-            break
-    if num % 100000 == 0:
-        print(f'{num} - продолжаем выполнение')
-    if delit != 0:
+for i in range(n):
+    if summa + sp[i] <= s:
+        cnt += 1
+        summa += sp[i]
+        indfl = i
+    else:
         break
+print(cnt)
+summa -= sp[indfl]
+for i in range(n - 1):
+    if sp[i] + summa <= s and sp[i + 1] + summa > s:
+        print(sp[i])
