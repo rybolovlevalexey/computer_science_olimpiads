@@ -1,7 +1,10 @@
-num = 16**20 - 2**30 - 32
-cnt = 0
-while num > 0:
-    if num % 4 == 3:
-        cnt += 1
-    num //= 4
-print(cnt)
+for a in range(1, 100):
+    flag = True
+    for x in range(1, 10000):
+        res = (x % a != 0) or (x % 28 != 0) or (x % 42 == 0)
+        if not res:
+            flag = False
+            break
+    if flag:
+        print(a)
+        break
