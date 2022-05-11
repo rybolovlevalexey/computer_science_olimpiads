@@ -1,7 +1,7 @@
-st = 156 * '8'
-while '77' in st or '888' in st:
-    if '77' in st:
-        st = st.replace('77', '88', 1)
-    else:
-        st = st.replace('888', '7', 1)
-print(st)
+num = 16**20 - 2**30 - 32
+cnt = 0
+while num > 0:
+    if num % 4 == 3:
+        cnt += 1
+    num //= 4
+print(cnt)
