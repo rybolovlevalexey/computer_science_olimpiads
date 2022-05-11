@@ -1,8 +1,8 @@
 def f(n):
     if n < 14:
-        return 3*n + 2*n + 1
+        return n**3 + n**2 + 1
     elif n > 13 and n % 3 == 0:
-        return f(n - 1) + 4*n - 3
+        return f(n - 1) + 2*n**2 - 3
     else:
         return f(n - 2) + 3*n + 6
 
