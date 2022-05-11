@@ -1,15 +1,14 @@
-def f(n):
-    if n < 14:
-        return n**3 + n**2 + 1
-    elif n > 13 and n % 3 == 0:
-        return f(n - 1) + 2*n**2 - 3
-    else:
-        return f(n - 2) + 3*n + 6
+file = open('zadanie_17.txt', 'r')
+sp = list(map(int, file.read().strip().split('\n')))
+cnt = 0
+summa = 0
 
-
-ans = 0
-for num in range(1, 1000 + 1):
-    res = f(num)
-    if len(list(filter(lambda x: x % 2 == 1, map(int, list(str(res)))))) == len(str(res)):
-        ans += 1
-print(ans)
+for elem in sp:
+    cntdelit = 0
+    for d in [7, 13, 17, 19]:
+        if elem % d == 0:
+            cntdelit += 1
+    if cntdelit == 2:
+        cnt += 1
+        summa += sum(map(int, list(str(elem))))
+print(cnt, summa)
