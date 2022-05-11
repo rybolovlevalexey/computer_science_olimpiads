@@ -1,14 +1,12 @@
-file = open('zadanie_17.txt', 'r')
-sp = list(map(int, file.read().strip().split('\n')))
-cnt = 0
-summa = 0
-
-for elem in sp:
-    cntdelit = 0
-    for d in [7, 13, 17, 19]:
-        if elem % d == 0:
-            cntdelit += 1
-    if cntdelit == 2:
-        cnt += 1
-        summa += sum(map(int, list(str(elem))))
-print(cnt, summa)
+for num in range(-1000, 1000):
+    x = num
+    L = 0
+    M = 0
+    while x > 0:
+        L += 1
+        if x % 2 == 1:
+            M = M + (x % 10)
+        x = x // 10
+    if L == 3 and M == 8:
+        print(num)
+        break
