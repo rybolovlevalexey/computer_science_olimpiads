@@ -1,12 +1,44 @@
-for num in range(-1000, 1000):
-    x = num
-    L = 0
-    M = 0
-    while x > 0:
-        L += 1
-        if x % 2 == 1:
-            M = M + (x % 10)
-        x = x // 10
-    if L == 3 and M == 8:
-        print(num)
-        break
+sp = [0] * 51
+sp[50] = 1
+for i in range(49, 29, -1):
+    if i + 3 <= 50:
+        sp[i] = sp[i + 3] + sp[i + 2]
+    elif i + 2 <= 50:
+        sp[i] = sp[i + 2]
+    else:
+        sp[i] = 0
+
+    if i * 2 + 1 <= 50:
+        sp[i] += sp[i * 2 + 1]
+        if sp[i * 2 + 1] != 0:
+            print('i am here')
+    if i * 2 <= 50:
+        sp[i] += sp[i * 2]
+        if sp[i * 2] != 0:
+            print('i am here')
+print(sp)
+print(sp[30])
+for i in range(50, 30, -1):
+    sp[i] = 0
+print(sp)
+for i in range(29, 17, -1):
+    if i == 23:
+        continue
+    if i + 3 <= 50:
+        sp[i] = sp[i + 3] + sp[i + 2]
+    elif i + 2 <= 50:
+        sp[i] = sp[i + 2]
+    else:
+        sp[i] = 0
+
+    if i * 2 + 1 <= 50:
+        sp[i] += sp[i * 2 + 1]
+        if sp[i * 2 + 1] != 0:
+            print('i am here')
+    if i * 2 <= 50:
+        sp[i] += sp[i * 2]
+        if sp[i * 2] != 0:
+            print('i am here')
+
+print(sp)
+print(sp[18])
