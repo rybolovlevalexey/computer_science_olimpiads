@@ -1,16 +1,20 @@
-ans = list()
-pornom = 1
+file = open('zadanie_26.txt', 'r')
+sp = file.read().strip().split('\n')
+s, n = map(int, sp[0].split())
+del sp[0]
+sp = list(reversed(sorted(map(int, sp))))
+print(sp)
+anscnt = 0
+mnchis = None
+summa = 0
 
-for num in range(248015, 251575 + 1, 2):
-    cntd = set()
-    midd = 0
-    for d in range(2, int(num**0.5) + 1):
-        if num % d == 0 and num // d != d:
-            cntd.add(num // d)
-            cntd.add(d)
-        elif d * d == num:
-            cntd.add(d)
-            midd = d
-    if len(cntd) % 2 == 1:
-        print(pornom, num, len(cntd), midd)
-        pornom += 1
+i = 0
+while i < n:
+    if summa + sp[i] <= s:
+        summa += sp[i]
+        anscnt += 1
+        if mnchis is None or mnchis > sp[i]:
+            mnchis = sp[i]
+    i += 1
+print(anscnt, mnchis)
+print(summa)
