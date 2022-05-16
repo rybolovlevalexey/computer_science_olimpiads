@@ -1,20 +1,12 @@
-file = open('zadanie_26.txt', 'r')
+file = open('zadanie_27B.txt', 'r')
 sp = file.read().strip().split('\n')
-s, n = map(int, sp[0].split())
+n = int(sp[0])
 del sp[0]
-sp = list(reversed(sorted(map(int, sp))))
-print(sp)
-anscnt = 0
-mnchis = None
-summa = 0
-
 i = 0
 while i < n:
-    if summa + sp[i] <= s:
-        summa += sp[i]
-        anscnt += 1
-        if mnchis is None or mnchis > sp[i]:
-            mnchis = sp[i]
+    sp[i] = list(map(int, sp[i].split(' ')))
     i += 1
-print(anscnt, mnchis)
-print(summa)
+summa = 0
+for elem in sp:
+    summa += min(elem)
+print(summa, summa % 13)
