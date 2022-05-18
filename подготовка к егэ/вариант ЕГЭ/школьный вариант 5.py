@@ -1,7 +1,14 @@
-print('x y z result')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            res = (not(x) or z) and (not(y) or x)
-            if (int(x) + int(y) + int(z) == 1 and int(res) == 0) or (int(x) + int(y) + int(z) == 2 and int(res == 1)):
-                print(int(x), int(y), int(z), int(res))
+cnt = 0
+for num in range(2, 1000):
+    n = num
+    r = bin(n)[2:]
+    summa = sum(map(int, list(r)))
+    r += str(summa % 2)
+    if summa > len(r) - summa - 1:
+        r += '0'
+    else:
+        r += '1'
+    r = int(r, 2)
+    if 50 <= r <= 80:
+        cnt += 1
+print(cnt)
