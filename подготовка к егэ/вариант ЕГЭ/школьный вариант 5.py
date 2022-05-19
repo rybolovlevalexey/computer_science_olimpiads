@@ -1,13 +1,27 @@
-for num in range(78920, 92430 + 1):
-    #if int(num ** 0.5) != num ** 0.5:
-    #    continue
-    sp = set()
-    sp.add(1)
-    sp.add(num)
-    for d in range(2, int(num ** 0.5) + 1):
-        if num % d == 0:
-            sp.add(d)
-            sp.add(num // d)
+cnt = 0
+file = open('zadanie_26.txt', 'r')
+sp = file.read().strip().split('\n')
+n, m = map(int, sp[0].split())
+del sp[0]
+sp = list(sorted(map(int, sp)))
+summa = 0
+for elem in sp:
+    if 310 <= elem <= 320:
+        summa += elem
+        cnt += 1
+lstind = 0
 
-    if len(sp) == 5:
-        print(sorted(sp))
+for i in range(len(sp)):
+    elem = sp[i]
+    if not 310 <= elem <= 320 and summa + elem <= m:
+        summa += elem
+        cnt += 1
+        lstind = i
+print(summa, lstind, m, sp[lstind])
+summa -= sp[lstind]
+for elem in sp[::-1]:
+    if elem + summa <= m:
+        summa += elem
+        print(elem)
+        break
+print(cnt, summa)
