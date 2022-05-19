@@ -1,7 +1,11 @@
-st = 193 * '5'
-while '333' in st or '555' in st:
-    if '555' in st:
-        st = st.replace('555', '3', 1)
-    else:
-        st = st.replace('333', '5', 1)
-print(st)
+for num in range(100000, 1, -1):
+    x = num
+    a = 0
+    b = 1
+    while x > 0:
+        a += 1
+        b = b + (x % 100)
+        x = x // 10
+    if a == 4 and b == 153:
+        print(num)
+        break
