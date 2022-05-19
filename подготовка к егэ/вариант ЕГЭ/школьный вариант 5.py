@@ -1,17 +1,16 @@
-dp = [0] * 101
-dp[10] = 1
-for i in range(11, 66):
-    if i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
+file = open('zadanie_24.txt', 'r')
+st = file.read().strip()
+dl = 1
+mxdl = 0
+
+for i in range(1, len(st)):
+    if st[i] != st[i - 1]:
+        dl += 1
     else:
-        dp[i] = dp[i - 1] + dp[(i - 1) // 2]
-print(dp)
-for i in range(65):
-    dp[i] = 0
-print(dp)
-for i in range(66, 101):
-    if i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i // 2]
-    else:
-        dp[i] = dp[i - 1] + dp[(i - 1) // 2]
-print(dp)
+        if dl > mxdl:
+            mxdl = dl
+        dl = 1
+
+if dl > mxdl:
+    mxdl = dl
+print(mxdl)
