@@ -1,13 +1,9 @@
-file = open('zadanie_27B.txt', 'r')
-sp = list(map(int, file.read().strip().split('\n')))
-n = sp[0]
-del sp[0]
-sp = list(sorted(sp))
-ostat = list()
-for elem in sp:
-    ostat.append(elem % 9)
-d = dict()
-for i in range(n):
-    d[sp[i]] = ostat[i]
-for i in range(25):
-    print(i, ')', sp[i], ostat[i])
+num = (2**94 - 1) * (2**42 + 2)
+cnt = 0
+while num > 0:
+    if num % 2 == 1:
+        cnt += 1
+    num //= 2
+print(cnt)
+num = (2**94 - 1) * (2**42 + 2)
+print(str(bin(num)[2:]).count('1'))
