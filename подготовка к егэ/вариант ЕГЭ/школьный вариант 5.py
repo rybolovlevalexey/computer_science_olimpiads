@@ -1,9 +1,10 @@
-num = (2**94 - 1) * (2**42 + 2)
-cnt = 0
-while num > 0:
-    if num % 2 == 1:
-        cnt += 1
-    num //= 2
-print(cnt)
-num = (2**94 - 1) * (2**42 + 2)
-print(str(bin(num)[2:]).count('1'))
+for a in range(1, 1000):
+    flag = True
+    for x in range(1, 10000):
+        res = (a % 35 == 0) and ((730 % x != 0) or (a % x == 0) or (110 % x != 0))
+        if not res:
+            flag = False
+            break
+    if flag:
+        print(a)
+        break
