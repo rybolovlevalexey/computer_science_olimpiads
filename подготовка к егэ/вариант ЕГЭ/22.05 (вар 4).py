@@ -1,5 +1,7 @@
-st = 39 * '1' + 39 * '2'
-while '111' in st:
-    st = st.replace('111', '2', 1)
-    st = st.replace('222', '1', 1)
-print(st)
+num = 49**7 + 7**20 - 28
+cnt = 0
+while num > 0:
+    if num % 7 == 6:
+        cnt += 1
+    num //= 7
+print(cnt)
