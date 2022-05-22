@@ -1,6 +1,5 @@
-n = 1
-s = 0
-while n <= 650:
-    s += 20
-    n *= 5
-print(s)
+st = 39 * '1' + 39 * '2'
+while '111' in st:
+    st = st.replace('111', '2', 1)
+    st = st.replace('222', '1', 1)
+print(st)
