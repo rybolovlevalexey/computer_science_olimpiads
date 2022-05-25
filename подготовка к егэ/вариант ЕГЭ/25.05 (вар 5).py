@@ -1,9 +1,10 @@
-print('x y z w result')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            for w in [True, False]:
-                res = (((x and y) or (y and z)) == ((not x or w) and (not w or z)))
-                numbers = [int(x), int(y), int(z), int(w)]
-                if res and not x:
-                    print(int(x), int(y), int(z), int(w), int(res))
+for num in range(6, 1000):
+    s = num
+    s = (s + 1) // 7
+    n = 36
+    while s < 2050:
+        s = s * 2
+        n = n + 3
+    if n == 66:
+        print(num)
+        break
