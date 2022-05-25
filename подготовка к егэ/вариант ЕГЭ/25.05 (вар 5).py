@@ -1,15 +1,12 @@
-for a in range(0, 1000):
-    flag = True
-    for x in range(0, 10000):
-        for y in range(0, 10000):
-            res = (x*y < a) or (y > x) or (x >= 8)
-            if not res:
-                flag = False
-                break
-            if y > x:
-                break
-        if not flag:
-            break
-    if flag:
-        print(a)
-        break
+def f(n):
+    if n > 2:
+        return f(n - 1) + g(n - 2)
+    return n
+
+
+def g(n):
+    if n > 2:
+        return g(n - 1) + f(n - 2)
+    return n + 1
+
+print(f(6))
