@@ -1,30 +1,30 @@
-file = open('26 (1).txt', 'r')
+file = open('27-B (1).txt', 'r')
 sp = file.read().strip().split('\n')
-n, m = map(int, sp[0].split())
+n = int(sp[0])
 del sp[0]
 summa = 0
-izdA = dict()
+chet = 0
+nechet = 0
+delts = list()
+
+mndl_notequal = None
 
 for elem in sp:
-    cost, colvo, tip = elem.split()
-    cost = int(cost)
-    colvo = int(colvo)
-    if tip == 'B':
-        summa += (colvo * cost)
+    a, b = map(int, elem.split())
+    summa += min(a, b)
+    delts.append(abs(a - b))
+    if min(a, b) % 2 == 0:
+        chet += 1
     else:
-        if cost in izdA:
-            izdA[cost] += colvo
-        else:
-            izdA[cost] = colvo
+        nechet += 1
+    if a % 2 != b % 2 and (mndl_notequal is None or mndl_notequal > abs(a - b)) and abs(a - b) != 27:
+        mndl_notequal = abs(a - b)
+    if abs(a - b) == 27 or abs(a - b) == 47 or abs(a - b) == 100 or abs(a - b) == 101 or abs(a - b) == 102 or abs(a - b) == 103:
+        print(a, b, 'a and b', abs(a - b))
 
-cntA = 0
-for key in sorted(izdA.keys()):
-    if summa + key * izdA[key] <= m:
-        summa += key * izdA[key]
-        cntA += izdA[key]
-    else:
-        for colichestvo in range(izdA[key], 0, -1):
-            if summa + key * colichestvo <= m:
-                cntA += colichestvo
-                summa += key * colichestvo
-print(cntA, m - summa)
+print(summa)
+print(chet, nechet)
+print(sorted(delts))
+print(min(delts))
+print()
+print(mndl_notequal)
