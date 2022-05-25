@@ -1,13 +1,27 @@
-for num in range(0, 1000):
-    x = num
-    a = 1
-    b = 0
-    while x > 0:
-        c = x % 10
-        a = a * c
-        if c > b:
-            b = c
-        x //= 10
-    if a == 48 and b == 6:
-        print(num)
-        break
+dp = [0] * 16
+dp[1] = 1
+
+for i in range(2, 11):
+    if i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
+    else:
+        dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
+for i in range(10):
+    dp[i] = 0
+print(dp)
+for i in range(11, 13):
+    if i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
+    else:
+        dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
+for i in range(12):
+    dp[i] = 0
+print(dp)
+for i in range(13, 16):
+    if i % 3 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
+    else:
+        dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
