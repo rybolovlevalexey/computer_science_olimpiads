@@ -1,27 +1,28 @@
-dp = [0] * 16
-dp[1] = 1
+letter = 'L'
+file = open('zadanie24_2 (1).txt', 'r')
+st = file.read().strip()
+dl = 0
+mxdl = 0
 
-for i in range(2, 11):
-    if i % 3 == 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
+for i in range(0, len(st)):
+    if st[i] == letter:
+        dl += 1
     else:
-        dp[i] = dp[i - 1] + dp[i - 2]
-print(dp)
-for i in range(10):
-    dp[i] = 0
-print(dp)
-for i in range(11, 13):
-    if i % 3 == 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
+        if dl > mxdl:
+            mxdl = dl
+        if st[i] == 'L':
+            dl = 1
+        else:
+            dl = 0
+
+    if letter == 'L':
+        letter = 'D'
+    elif letter == 'D':
+        letter = 'R'
     else:
-        dp[i] = dp[i - 1] + dp[i - 2]
-print(dp)
-for i in range(12):
-    dp[i] = 0
-print(dp)
-for i in range(13, 16):
-    if i % 3 == 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 3]
-    else:
-        dp[i] = dp[i - 1] + dp[i - 2]
-print(dp)
+        letter = 'L'
+
+print(dl)
+print(mxdl)
+print(st.count('LDR' * 5 + 'L'))
+print(st[st.index('LDR' * 5):st.index('LDR' * 5) + 16])
