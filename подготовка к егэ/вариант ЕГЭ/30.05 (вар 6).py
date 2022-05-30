@@ -1,10 +1,15 @@
-print('x y z w result')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            for w in [True, False]:
-                res = (((x and not y) or (not w or z)) == (z == x))
-                x, y, z, w = int(x), int(y), int(z), int(w)
-                s = sum([x, y, z, w])
-                if res and s != 4 and s != 0 and s != 1 and x != z:
-                    print(x, y, z, w, int(res))
+ans = 0
+an = 0
+for num in range(10000):
+    n = num
+    res = bin(n)[2:]
+    if n % 2 == 0:
+        res += '10'
+    else:
+        res += '01'
+    res = int(res, 2)
+    if res <= 102 and res > ans:
+        ans = res
+        an = num
+print(ans)
+print(an)
