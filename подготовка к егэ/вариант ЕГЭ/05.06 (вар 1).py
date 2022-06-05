@@ -1,8 +1,14 @@
-print('x y z w result')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            for w in [True, False]:
-                res = (((not x or y) == (not z or w)) or (x and w))
-                if not res:
-                    print(int(x), int(y), int(z), int(w), int(res))
+num = int(input())
+def one(x):
+    x = bin(x)[2:] + '0'
+    return int(x, 2)
+def two(x):
+    return x - 1
+
+num = one(num)
+num = one(num)
+num = two(num)
+num = one(num)
+num = one(num)
+num = two(num)
+print(num)
