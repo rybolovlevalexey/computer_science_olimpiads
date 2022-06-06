@@ -1,11 +1,17 @@
-for num in range(100000):
-    x = num
-    L = 0
-    M = 0
-    while x > 0:
-        L = L + 1
-        if (x % 2) != 0:
-            M = M + x % 8
-        x = x // 8
-    if L == 3 and M == 6:
-        print(num)
+dp = [0] * 13
+dp[3] = 1
+for i in range(4, 11):
+    if i % 2 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
+for i in range(10):
+    dp[i] = 0
+print(dp)
+for i in range(11, 13):
+    if i % 2 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
