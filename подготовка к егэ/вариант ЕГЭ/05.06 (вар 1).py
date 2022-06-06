@@ -1,10 +1,12 @@
-num = 4**2020 + 2**2017 - 15
-print(num)
-cnt = 0
-while num > 0:
-    if num % 2 == 1:
-        cnt += 1
-    num //= 2
-print(cnt)
-num = 4**2020 + 2**2017 - 15
-print((bin(num)[2:]).count('1'))
+for a in range(10, 100):
+    flag = True
+    for x in range(10000):
+        for y in range(10000):
+            res = (2*x + 3*y < 30) or (x + y >= a)
+            if not res:
+                flag = False
+                break
+        if not flag:
+            break
+    if flag:
+        print(a)
