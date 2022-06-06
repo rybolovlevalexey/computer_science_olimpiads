@@ -1,7 +1,10 @@
-st = 1000 * '9'
-while '999' in st or '888' in st:
-    if '888' in st:
-        st = st.replace('888', '9', 1)
-    else:
-        st = st.replace('999', '8', 1)
-print(st)
+num = 4**2020 + 2**2017 - 15
+print(num)
+cnt = 0
+while num > 0:
+    if num % 2 == 1:
+        cnt += 1
+    num //= 2
+print(cnt)
+num = 4**2020 + 2**2017 - 15
+print((bin(num)[2:]).count('1'))
