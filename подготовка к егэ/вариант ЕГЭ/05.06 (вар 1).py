@@ -1,15 +1,15 @@
-for num in range(45000000, 50000000 + 1):
-    x = num
-    while x % 2 == 0:
-        x //= 2
-    if int(x ** 0.5) ** 2 != x:
-        continue
-    sp = set()
-    for d in range(3, int(x ** 0.5) + 1, 2):
-        if num % d == 0:
-            sp.add(d)
-            sp.add(x // d)
-        if len(sp) >= 4:
-            break
-    if len(sp) == 3:
-        print(num)
+file = open('26 (2).txt', 'r')
+sp = list(map(int, file.read().strip().split('\n')))
+n = sp[0]
+del sp[0]
+nechet = list(filter(lambda x: x % 2 == 1, sp))
+cnt = 0
+mxsr = 0
+
+for i in range(len(nechet) - 1):
+    for j in range(i + 1, len(nechet)):
+        if (nechet[i] + nechet[j]) % 2 == 0 and (nechet[i] + nechet[j]) // 2 in sp:
+            cnt += 1
+            if (nechet[i] + nechet[j]) // 2 > mxsr:
+                mxsr = (nechet[i] + nechet[j]) // 2
+print(cnt, mxsr)
