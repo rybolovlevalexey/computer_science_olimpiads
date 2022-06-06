@@ -1,15 +1,28 @@
-file = open('26 (2).txt', 'r')
-sp = list(map(int, file.read().strip().split('\n')))
-n = sp[0]
+file = open('27_B.txt', 'r')
+sp = file.read().strip().split('\n')
+n = int(sp[0])
 del sp[0]
-nechet = list(filter(lambda x: x % 2 == 1, sp))
-cnt = 0
-mxsr = 0
+for i in range(n):
+    elem = sp[i]
+    sp[i] = list(map(int, elem.split()))
+summa = 0
+delta = None
 
-for i in range(len(nechet) - 1):
-    for j in range(i + 1, len(nechet)):
-        if (nechet[i] + nechet[j]) % 2 == 0 and (nechet[i] + nechet[j]) // 2 in sp:
-            cnt += 1
-            if (nechet[i] + nechet[j]) // 2 > mxsr:
-                mxsr = (nechet[i] + nechet[j]) // 2
-print(cnt, mxsr)
+for elem in sp:
+    a, b, c = elem
+    summa += max(elem)
+    if len(set(elem)) == 1 or len(set(elem)) == 2:
+        continue
+    rd1 = abs(a - b)
+    rd2 = abs(a - c)
+    rd3 = abs(b - c)
+    rd = list(filter(lambda x: x % 109 != 0 and x != 0, [abs(a - b), abs(a - c), abs(b - c)]))
+    if len(rd) > 0 and (delta is None or delta > min(rd)):
+        delta = min(rd)
+
+print(summa)
+print(summa % 109)
+print(delta)
+ans = summa + delta
+print(ans)
+print(ans % 109)
