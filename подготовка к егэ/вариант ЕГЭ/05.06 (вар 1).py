@@ -1,12 +1,11 @@
-for a in range(10, 100):
-    flag = True
-    for x in range(10000):
-        for y in range(10000):
-            res = (2*x + 3*y < 30) or (x + y >= a)
-            if not res:
-                flag = False
-                break
-        if not flag:
-            break
-    if flag:
-        print(a)
+sp = list()
+
+def f(n):
+    if n > 0:
+        f(n // 4)
+        sp.append(n)
+        f(n - 1)
+
+f(5)
+print(sp)
+print(''.join(list(map(str, sp))))
