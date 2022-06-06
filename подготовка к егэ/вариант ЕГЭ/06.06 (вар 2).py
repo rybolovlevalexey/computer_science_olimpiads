@@ -1,13 +1,27 @@
-sp = ['м', 'а', 'т', 'в', 'е', 'й']
-ans = 0
+d = {10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f'}
+def five(x):
+    res = ''
+    while x > 0:
+        res += str(x % 5)
+        x //= 5
+    return res[::-1]
+def six(x):
+    res = ''
+    while x > 0:
+        res += str(x % 6)
+        x //= 6
+    return res[::-1]
+def eleven(x):
+    res = ''
+    while x > 0:
+        ost = x % 11
+        if ost >= 10:
+            res += d[ost]
+        else:
+            res += str(ost)
+        x //= 11
+    return res[::-1]
 
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                for i5 in sp:
-                    for i6 in sp:
-                        st = i1 + i2 + i3 + i4 + i5 + i6
-                        if len(set(st)) == 6 and i1 != 'й' and st.count('ае') == 0:
-                            ans += 1
-print(ans)
+for num in range(1, 10000):
+    if len(six(num)) == 2 and len(five(num)) == 3 and eleven(num)[-1] == '1':
+        print(num)
