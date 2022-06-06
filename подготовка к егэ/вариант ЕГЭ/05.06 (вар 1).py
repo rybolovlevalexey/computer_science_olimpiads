@@ -1,15 +1,11 @@
-file = open('17 (8).txt', 'r')
-sp = list(map(int, file.read().strip().split('\n')))
-cnt = 0
-chet = list(filter(lambda x: x % 2 == 0, sp))
-sr = sum(chet) / len(chet)
-mxsm = 0
-
-for i in range(len(sp) - 1):
-    i1 = sp[i]
-    i2 = sp[i + 1]
-    if (i1 % 3 == 0 or i2 % 3 == 0) and (i1 < sr or i2 < sr):
-        cnt += 1
-        if i1 + i2 > mxsm:
-            mxsm = i1 + i2
-print(cnt, mxsm)
+for num in range(100000):
+    x = num
+    L = 0
+    M = 0
+    while x > 0:
+        L = L + 1
+        if (x % 2) != 0:
+            M = M + x % 8
+        x = x // 8
+    if L == 3 and M == 6:
+        print(num)
