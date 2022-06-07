@@ -1,13 +1,13 @@
-for num in range(0, 1000):
-    x = num
-    a = 0
-    b = 0
-    while x > 0:
-        if x % 2 == 0:
-            a += 1
-        else:
-            b += x % 6
-        x = x // 6
-    if a == 2 and b == 4:
-        print(num)
-        break
+dp = [0] * 21
+dp[3] = 1
+for i in range(4, 10):
+    dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
+for i in range(9):
+    dp[i] = 0
+print(dp)
+for i in range(10, 21):
+    if i == 15:
+        continue
+    dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
