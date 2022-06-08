@@ -1,17 +1,13 @@
-d = {10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f'}
-def convert(num, syst):
-    res = ''
-    while num > 0:
-        ost = num % syst
-        if 10 <= ost <= 15:
-            res += d[ost]
-        else:
-            res += str(num % syst)
-        num //= syst
-    return res[::-1]
-
-
-for system in range(2, 100):
-    result = convert(87, system)
-    if result[-1] == '2' and len(result) <= 2:
-        print(system)
+for a in range(1000):
+    flag = True
+    for x in range(1000):
+        for y in range(1000):
+            res = (2*x + 3*y > 30) or (x + y <= a)
+            if not res:
+                flag = False
+                break
+        if not flag:
+            break
+    if flag:
+        print(a)
+        break
