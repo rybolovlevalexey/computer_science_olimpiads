@@ -1,11 +1,15 @@
-file = open('17 (8).txt', 'r')
-sp = list(map(int, file.read().strip().split('\n')))
-cnt = 0
-mxsm = 0
-for i in range(len(sp) - 1):
-    for j in range(i + 1, len(sp)):
-        if (sp[i] + sp[j]) % 120 == 0:
-            cnt += 1
-            if (sp[i] + sp[j]) > mxsm:
-                mxsm = (sp[i] + sp[j])
-print(cnt, mxsm)
+for num in range(-1000, 1000):
+    x = num
+    a = 0
+    b = 10
+    while x > 0:
+        d = x % 6
+        if d > a:
+            a = d
+        if d < b:
+            b = d
+        x = x // 6
+    res = a + b
+    if res == 8:
+        print(num)
+        break
