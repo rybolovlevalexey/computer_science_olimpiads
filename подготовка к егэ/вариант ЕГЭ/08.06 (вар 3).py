@@ -1,9 +1,17 @@
-st = '1' + 80 * '8'
-while ('18' in st) or ('288' in st) or ('3888' in st):
-    if '18' in st:
-        st = st.replace('18', '2', 1)
-    elif '288' in st:
-        st = st.replace('288', '3', 1)
-    else:
-        st = st.replace('3888', '1', 1)
-print(st)
+d = {10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f'}
+def convert(num, syst):
+    res = ''
+    while num > 0:
+        ost = num % syst
+        if 10 <= ost <= 15:
+            res += d[ost]
+        else:
+            res += str(num % syst)
+        num //= syst
+    return res[::-1]
+
+
+for system in range(2, 100):
+    result = convert(87, system)
+    if result[-1] == '2' and len(result) <= 2:
+        print(system)
