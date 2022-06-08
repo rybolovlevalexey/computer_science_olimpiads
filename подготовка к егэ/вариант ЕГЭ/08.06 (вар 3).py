@@ -1,12 +1,7 @@
-dp = [0] * 16
-dp[1] = 1
-for i in range(2, 16):
-    dp[i] = dp[i - 1]
-    if i % 10 == 0:
-        dp[i] += dp[i // 10]
-    if i % 2 == 0:
-        dp[i] += dp[i // 2]
-    else:
-        dp[i] += dp[(i - 1) // 2]
-print(dp)
-print(dp[-1])
+file = open('24 (5).txt', 'r')
+st = file.read().strip().split('E')
+mxdl = 0
+for elem in st:
+    if elem.count('A') >= 3 and len(elem) > mxdl:
+        mxdl = len(elem)
+print(mxdl)
