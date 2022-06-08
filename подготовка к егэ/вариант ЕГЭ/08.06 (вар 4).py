@@ -1,11 +1,7 @@
-file = open('17 (9).txt', 'r')
-sp = list(map(int, file.read().strip().split('\n')))
-cnt = 0
-mxsm = 0
-for i in range(len(sp) - 1):
-    for j in range(i + 1, len(sp)):
-        if sp[i] % 160 != sp[j] % 160 and (sp[i] % 7 == 0 or sp[j] % 7 == 0):
-            cnt += 1
-            if sp[i] + sp[j] > mxsm:
-                mxsm = sp[i] + sp[j]
-print(cnt, mxsm)
+#12345?7?8
+for i1 in range(0, 10):
+    for i2 in range(0, 10):
+        st = '12345' + str(i1) + '7' + str(i2) + '8'
+        num = int(st)
+        if num < 10**9 and num % 23 == 0:
+            print(num, num // 23)
