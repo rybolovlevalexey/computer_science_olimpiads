@@ -1,15 +1,12 @@
-for num in range(-1000, 1000):
-    x = num
-    a = 0
-    b = 10
-    while x > 0:
-        d = x % 6
-        if d > a:
-            a = d
-        if d < b:
-            b = d
-        x = x // 6
-    res = a + b
-    if res == 8:
-        print(num)
-        break
+dp = [0] * 16
+dp[1] = 1
+for i in range(2, 16):
+    dp[i] = dp[i - 1]
+    if i % 10 == 0:
+        dp[i] += dp[i // 10]
+    if i % 2 == 0:
+        dp[i] += dp[i // 2]
+    else:
+        dp[i] += dp[(i - 1) // 2]
+print(dp)
+print(dp[-1])
