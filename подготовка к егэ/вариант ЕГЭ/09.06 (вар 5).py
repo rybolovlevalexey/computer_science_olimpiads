@@ -1,11 +1,8 @@
-for num in range(100000):
-    x = num
-    L = 0
-    M = 0
-    while x > 0:
-        M = M + 1
-        if (x % 2) != 0:
-            L = L + x % 8
-        x = x // 8
-    if L == 14 and M == 3:
-        print(num)
+ans = set()
+for i1 in ['+2', '*3']:
+    for i2 in ['+2', '*3']:
+        for i3 in ['+2', '*3']:
+            num = eval(str(eval(str(eval('2'+i1))+i2))+i3)
+            ans.add(num)
+print(ans)
+print(len(ans))
