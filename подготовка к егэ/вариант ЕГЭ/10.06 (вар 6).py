@@ -1,12 +1,14 @@
-def isprost(x):
-    for d in range(2, int(x**0.5)+1):
-        if x % d == 0:
-            return False
-    return True
-
-
-n = 1
-for num in range(245690, 245756+1):
-    if isprost(num):
-        print(n, num)
-    n += 1
+file = open('26 (5).txt', 'r')
+sp = list(map(int, file.read().strip().split('\n')))
+n = sp[0]
+del sp[0]
+nechet = list(filter(lambda x: x % 2 != 0, sp))
+cnt = 0
+mxsr = 0
+for i in range(len(nechet) - 1):
+    for j in range(i + 1, len(nechet)):
+        if (nechet[i] + nechet[j]) // 2 in sp:
+            cnt += 1
+            if (nechet[i] + nechet[j]) // 2 > mxsr:
+                mxsr = (nechet[i] + nechet[j]) // 2
+print(cnt, mxsr)
