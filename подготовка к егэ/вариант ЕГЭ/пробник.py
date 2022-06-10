@@ -1,13 +1,26 @@
-n = 1
-glas = ['е', 'а']
-sp = sorted(['ф', 'е', 'в', 'р', 'а', 'л', 'ь'])
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                for i5 in sp:
-                    for i6 in sp:
-                        if i1 not in glas and i2 not in glas and i3 not in glas and i4 not in glas and i5 not in glas and i6 not in glas:
-                            print(n)
-                            x = 1/0
-                        n += 1
+a = list('ababbababbaa')
+q = 1
+i = 1
+while q < 4:
+    c = a[i - 1]
+    if q == 2:
+        if c == 'a':
+            a[i - 1] = 'b'
+        else:
+            q = 1
+    if q == 3:
+        if c == 'b':
+            a[i - 1] = 'a'
+        else:
+            q = 1
+    if q == 1:
+        del a[i - 1]
+        i = i - 1
+        if c == 'a':
+            q = 3
+        if c == 'b':
+            q = 2
+    i += 1
+    if i > len(a):
+        q = 4
+print(''.join(a))
