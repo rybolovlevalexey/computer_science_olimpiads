@@ -1,11 +1,6 @@
-for num in range(1000):
-    n = num
-    r = bin(n)[2:]
-    s = sum(map(int, list(r)))
-    r += str(s % 2)
-    s = sum(map(int, list(r)))
-    r += str(s % 2)
-    res = int(r, 2)
-    if res > 43:
-        print(res)
-        break
+n = 1
+s = 0
+while n <= 100:
+    s = s + 30
+    n = n * 3
+print(s)
