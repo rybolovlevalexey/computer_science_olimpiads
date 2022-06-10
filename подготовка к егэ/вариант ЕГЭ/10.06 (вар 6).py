@@ -1,16 +1,12 @@
-ans = list()
-for a in range(-100, 100):
-    flag = True
-    for x in range(1000):
-        for y in range(1000):
-            res = (x >= a or x**2 < 81) and (y**2 > 36 or y <= a)
-            if not res:
-                flag = False
-                break
-        if not flag:
-            break
-    if flag:
-        print(a)
-        ans.append(a)
-print(ans)
-print(len(ans))
+sp = list()
+def f(n):
+    if n > 0:
+        g(n - 1)
+def g(n):
+    sp.append('*')
+    if n > 1:
+        f(n - 3)
+
+f(10)
+print(len(sp))
+print(sp)
