@@ -1,8 +1,11 @@
-print('x y z w')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            for w in [True, False]:
-                res = (w or y) and (not x or not z) and not w
-                if res:
-                    print(int(x), int(y), int(z), int(w), int(res))
+for num in range(100000, 0, -1):
+    n = num
+    r = bin(n)[2:]
+    r = r[::-1]
+    if r[0] == '0':
+        r = '1' + r
+    r += bin(n)[2:]
+    res = int(r, 2)
+    if res <= 6000:
+        print(num)
+        break
