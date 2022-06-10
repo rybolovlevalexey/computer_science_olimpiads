@@ -1,11 +1,16 @@
-cnt = 0
-sp = ['з', 'и', 'м', 'а']
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                for i5 in sp:
-                    st = i1 + i2 + i3 + i4 + i5
-                    if (st.count('и') == 1 and st.count('а') == 0) or (st.count('и') == 0 and st.count('а') == 1):
-                        cnt += 1
-print(cnt)
+ans = list()
+for a in range(-100, 100):
+    flag = True
+    for x in range(1000):
+        for y in range(1000):
+            res = (x >= a or x**2 < 81) and (y**2 > 36 or y <= a)
+            if not res:
+                flag = False
+                break
+        if not flag:
+            break
+    if flag:
+        print(a)
+        ans.append(a)
+print(ans)
+print(len(ans))
