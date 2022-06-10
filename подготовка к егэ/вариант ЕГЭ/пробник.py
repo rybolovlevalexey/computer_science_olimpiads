@@ -1,0 +1,8 @@
+print('x y z w')
+for x in [True, False]:
+    for y in [True, False]:
+        for z in [True, False]:
+            for w in [True, False]:
+                res = (w or y) and (not x or not z) and not w
+                if res:
+                    print(int(x), int(y), int(z), int(w), int(res))
