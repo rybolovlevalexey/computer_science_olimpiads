@@ -1,17 +1,12 @@
-file = open('107_24.txt', 'r')
-st = file.read().strip()
-cnt = 0
-mxcnt = 0
-i = 0
+def isprost(x):
+    for d in range(2, int(x**0.5)+1):
+        if x % d == 0:
+            return False
+    return True
 
-while i < len(st) - 1:
-    if (st[i] == 'A' and st[i + 1] == 'B') or (st[i] == 'C' and st[i + 1] == 'B'):
-        i += 2
-        cnt += 1
-    else:
-        if cnt > mxcnt:
-            mxcnt = cnt
-        cnt = 0
-        i += 1
-print(mxcnt)
-print(cnt)
+
+n = 1
+for num in range(245690, 245756+1):
+    if isprost(num):
+        print(n, num)
+    n += 1
