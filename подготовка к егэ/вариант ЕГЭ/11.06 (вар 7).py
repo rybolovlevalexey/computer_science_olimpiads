@@ -1,14 +1,22 @@
-ans = list()
-d1 = 29
-while True:
-    nechet = d1**4
-    if nechet > 50_000_000:
+file = open("27880.txt", 'r')
+sp = file.read().strip().split('\n')
+s, n = map(int, sp[0].split())
+del sp[0]
+sp = list(sorted(map(int, sp)))
+summa = 0
+cnt = 0
+lstelem = 0
+for elem in sp:
+    if elem + summa <= s:
+        summa += elem
+        cnt += 1
+        lstelem = elem
+    else:
         break
-    while True:
-        if 45_000_000 <= nechet <= 50_000_000:
-            ans.append(nechet)
-        if nechet > 50_000_000:
-            break
-        nechet *= 2
-    d1 += 2
-print(*sorted(ans), sep='\n')
+print(cnt)
+summa -= lstelem
+print(lstelem, summa, s)
+for elem in sp[::-1]:
+    if summa + elem <= s:
+        print(elem)
+        break
