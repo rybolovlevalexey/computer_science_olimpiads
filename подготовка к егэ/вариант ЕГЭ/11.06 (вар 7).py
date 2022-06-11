@@ -1,14 +1,20 @@
-file = open('Безымянный.txt', 'r')
-sp = file.read().strip().split('\n')
-numbers = list()
-for line in sp:
-    line = map(float, line.split())
-    for num in line:
-        numbers.append(num)
-sr = round(sum(numbers) / len(numbers), 1)
-mn = min(numbers) * 2
-cnt = 0
-for num in numbers:
-    if mn < num < sr:
-        cnt += 1
-print(cnt)
+def convert(x, s):
+    r = ''
+    while x > 0:
+        r += str(x % s)
+        if s == 11:
+            print(x % s)
+        if s == 13:
+            print(x % s)
+        if s == 19:
+            print(x % s)
+        x //= s
+    if s in [11, 13, 19]:
+        print('----------')
+    return r[::-1]
+
+
+for n in range(2, 20):
+    res = convert(144, n)
+    if res[-1] == '1' and len(res) >= 3:
+        print(n, 'answer')
