@@ -1,17 +1,11 @@
-dp = [0] * 23
-dp[2] = 1
-for i in range(3, 12):
-    if i % 2 == 0:
-        dp[i] = dp[i - 2] + dp[i - 3] + dp[i // 2]
+file = open('24_demo.txt', 'r')
+st = file.read().strip()
+n = 1
+while True:
+    if st.count('XYZ' * n) >= 1:
+        ans = n
     else:
-        dp[i] = dp[i - 2] + dp[i - 3]
-print(dp)
-for i in range(11):
-    dp[i] = 0
-print(dp)
-for i in range(12, 23):
-    if i % 2 == 0:
-        dp[i] = dp[i - 2] + dp[i - 3] + dp[i // 2]
-    else:
-        dp[i] = dp[i - 2] + dp[i - 3]
-print(dp)
+        break
+    n += 1
+
+print(st.count('XYZ' * 4 + 'X'))
