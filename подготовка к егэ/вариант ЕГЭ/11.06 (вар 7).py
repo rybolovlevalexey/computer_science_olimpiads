@@ -1,11 +1,14 @@
-file = open('24_demo.txt', 'r')
-st = file.read().strip()
-n = 1
+ans = list()
+d1 = 29
 while True:
-    if st.count('XYZ' * n) >= 1:
-        ans = n
-    else:
+    nechet = d1**4
+    if nechet > 50_000_000:
         break
-    n += 1
-
-print(st.count('XYZ' * 4 + 'X'))
+    while True:
+        if 45_000_000 <= nechet <= 50_000_000:
+            ans.append(nechet)
+        if nechet > 50_000_000:
+            break
+        nechet *= 2
+    d1 += 2
+print(*sorted(ans), sep='\n')
