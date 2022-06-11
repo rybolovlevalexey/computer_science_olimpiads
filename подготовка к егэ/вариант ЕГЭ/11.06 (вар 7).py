@@ -1,11 +1,17 @@
-for num in range(1000000):
-    x = num
-    a = 0; b = 1
-    while x > 0:
-        if x % 2 > 0:
-            a += x % 8
-        else:
-            b = b * (x % 8)
-        x = x // 8
-    if a == 2 and b == 12:
-        print(num)
+dp = [0] * 23
+dp[2] = 1
+for i in range(3, 12):
+    if i % 2 == 0:
+        dp[i] = dp[i - 2] + dp[i - 3] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 2] + dp[i - 3]
+print(dp)
+for i in range(11):
+    dp[i] = 0
+print(dp)
+for i in range(12, 23):
+    if i % 2 == 0:
+        dp[i] = dp[i - 2] + dp[i - 3] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 2] + dp[i - 3]
+print(dp)
