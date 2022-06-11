@@ -1,6 +1,6 @@
-num = '1000100111001101'
-num = int(num, 2)
-print(num)
-num = hex(num)
-print(num)
-print(num[2:].upper())
+n = 3
+s = 0
+while n <= 7:
+    s += n
+    n += 1
+print(s)
