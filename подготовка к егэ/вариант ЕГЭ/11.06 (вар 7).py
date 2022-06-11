@@ -1,12 +1,9 @@
-for a in range(1000):
-    flag = True
-    for x in range(1000):
-        for y in range(1000):
-            res = (y + 2*x != 48) or (a < x) or (a < y)
-            if not res:
-                flag = False
-                break
-        if not flag:
-            break
-    if flag:
-        print(a)
+sp = list()
+def f(n):
+    if n > 0:
+        f(n - 3)
+        sp.append(n)
+        f(n // 3)
+
+f(9)
+print(''.join(map(str, sp)))
