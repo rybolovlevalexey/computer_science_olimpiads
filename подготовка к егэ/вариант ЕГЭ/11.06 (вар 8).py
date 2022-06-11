@@ -1,8 +1,17 @@
-dp = [0] * 21
-dp[1] = 1
-for i in range(2, 21):
-    if i - 5 >= 0:
-        dp[i] = dp[i - 2] + dp[i - 5]
+file = open('24_demo (1).txt', 'r')
+st = file.read().strip()
+ansst = ''
+mxdl = 0
+dl = 1
+s = st[0]
+for i in range(1, len(st)):
+    if s[-1] == st[i]:
+        if dl > mxdl:
+            mxdl = dl
+            ansst = s
+        dl = 1
+        s = st[i]
     else:
-        dp[i] = dp[i - 2]
-print(dp)
+        s += st[i]
+        dl += 1
+print(ansst, mxdl)
