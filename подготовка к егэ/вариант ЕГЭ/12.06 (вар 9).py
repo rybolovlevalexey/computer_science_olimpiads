@@ -1,11 +1,19 @@
-for num in range(1000):
-    x = num
-    a = 0
-    b = 0
-    while x > 0:
-        a = a + 1
-        b = b + x % 100
-        x = x // 100
-    if a == 2 and b == 13:
-        print(num)
-        break
+dp = [0] * 22
+dp[1] = 1
+for i in range(2, 11):
+    if i % 2 == 0:
+        dp[i] = dp[i // 2] + dp[i - 1]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
+for i in range(10):
+    dp[i] = 0
+print(dp)
+for i in range(11, 22):
+    if i == 17:
+        continue
+    if i % 2 == 0:
+        dp[i] = dp[i // 2] + dp[i - 1]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
