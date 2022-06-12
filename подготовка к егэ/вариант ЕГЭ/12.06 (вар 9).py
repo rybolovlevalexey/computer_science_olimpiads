@@ -1,2 +1,9 @@
-num = 4**255 + 2**255 - 255
-print(bin(num)[2:].count('1'))
+sp = list()
+def f(n):
+    if n > 0:
+        f(n - 1)
+        sp.append(str(n))
+        f(n - 2)
+
+f(4)
+print(''.join(sp))
