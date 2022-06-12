@@ -1,10 +1,20 @@
-def isprost(x):
-    for d in range(2, int(x**0.5) + 1):
-        if x % d == 0:
-            return False
-    return True
-n = 1
-for num in range(2422000, 2422080 + 1):
-    if isprost(num):
-        print(n, num)
-        n += 1
+file = open('26 (7).txt', 'r')
+sp = file.read().strip().split('\n')
+s, n = map(int, sp[0].split())
+del sp[0]
+sp = list(sorted(map(int, sp)))
+summa = 0
+cnt = 0
+lstelem = 0
+for elem in sp:
+    if summa + elem <= s:
+        summa += elem
+        cnt += 1
+        lstelem = elem
+    else:
+        break
+summa -= lstelem
+for elem in sp[::-1]:
+    if elem + summa <= s:
+        print(elem)
+        break
