@@ -1,9 +1,6 @@
-cnt = 0
-for num in range(100, 1000):
-    n = num
-    s1 = int(str(n)[0]) + int(str(n)[1])
-    s2 = int(str(n)[1]) + int(str(n)[2])
-    ans = ''.join(map(str, sorted([s1, s2])))
-    if ans == '1216':
-        cnt += 1
-print(cnt)
+s = 0
+n = 0
+while 2*s*s < 123:
+    s = s + 1
+    n = n + 3
+print(n)
