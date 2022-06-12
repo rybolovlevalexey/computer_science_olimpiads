@@ -1,20 +1,12 @@
-file = open('26 (7).txt', 'r')
-sp = file.read().strip().split('\n')
-s, n = map(int, sp[0].split())
+file = open('28133_B.txt', 'r')
+sp = list(map(int, file.read().strip().split('\n')))
+n = sp[0]
 del sp[0]
-sp = list(sorted(map(int, sp)))
-summa = 0
-cnt = 0
-lstelem = 0
-for elem in sp:
-    if summa + elem <= s:
-        summa += elem
-        cnt += 1
-        lstelem = elem
-    else:
-        break
-summa -= lstelem
-for elem in sp[::-1]:
-    if elem + summa <= s:
-        print(elem)
-        break
+ans = 0
+anssp = list()
+for i in range(n - 1):
+    for j in range(i + 1, n):
+        if sp[i] > sp[j] and (sp[i] + sp[j]) % 120 == 0 and sp[i] + sp[j] > ans:
+            ans = sp[i] + sp[j]
+            anssp = [sp[i], sp[j]]
+print(anssp)
