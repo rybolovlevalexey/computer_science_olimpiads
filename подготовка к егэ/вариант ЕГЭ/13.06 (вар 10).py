@@ -1,6 +1,12 @@
-s = 0
-n = 6
-while n > 1:
-    s = s + n
-    n = n - 1
-print(s)
+sp = sorted(['а', 'о', 'у'])[::-1]
+cnt = 1
+for i1 in sp:
+    for i2 in sp:
+        for i3 in sp:
+            for i4 in sp:
+                for i5 in sp:
+                    for i6 in sp:
+                        st = i1 + i2 + i3 + i4 + i5 + i6
+                        if st == 'оуууоо':
+                            print(cnt)
+                        cnt += 1
