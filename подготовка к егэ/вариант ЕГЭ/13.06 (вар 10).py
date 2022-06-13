@@ -1,12 +1,8 @@
-sp = sorted(['а', 'о', 'у'])[::-1]
-cnt = 1
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                for i5 in sp:
-                    for i6 in sp:
-                        st = i1 + i2 + i3 + i4 + i5 + i6
-                        if st == 'оуууоо':
-                            print(cnt)
-                        cnt += 1
+sp = list()
+def f(n):
+    if n < 8:
+        sp.append(n)
+        f(2 * n)
+        f(n + 3)
+f(1)
+print(''.join(map(str, sp)))
