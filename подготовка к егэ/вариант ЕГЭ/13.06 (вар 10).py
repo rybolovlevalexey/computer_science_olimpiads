@@ -1,12 +1,17 @@
-for num in range(101, 1000):
-    x = num
-    L = x - 30
-    M = x + 30
-    while L != M:
-        if L > M:
-            L = L - M
-        else:
-            M = M - L
-    if M == 60:
-        print(num)
-        break
+dp = [0] * 16
+dp[1] = 1
+for i in range(2, 9):
+    if i - 3 > 0:
+        dp[i] = dp[i - 1] + dp[i - 3]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
+for i in range(8):
+    dp[i] = 0
+print(dp)
+for i in range(9, 16):
+    if i - 3 > 0:
+        dp[i] = dp[i - 1] + dp[i - 3]
+    else:
+        dp[i] = dp[i - 1]
+print(dp)
