@@ -1,13 +1,9 @@
-def deliteli(x):
-    sp = set()
-    for d in range(1, int(x**0.5) + 1):
-        if x % d == 0:
-            sp.add(d)
-            sp.add(x // d)
-    return sp
+file = open('27991_A.txt', 'r')
+sp = list(map(int, file.read().strip().split('\n')))
+mxsm = 0
 
-
-for num in range(312614, 312651 + 1):
-    res = deliteli(num)
-    if len(res) == 6:
-        print(sorted(res))
+for i in range(len(sp) - 1):
+    for j in range(i + 1, len(sp)):
+        if abs(sp[i] - sp[j]) % 2 == 0 and (sp[i] % 17 == 0 or sp[j] % 17 == 0) and sp[i] + sp[j] > mxsm:
+            mxsm = sp[i] + sp[j]
+print(mxsm)
