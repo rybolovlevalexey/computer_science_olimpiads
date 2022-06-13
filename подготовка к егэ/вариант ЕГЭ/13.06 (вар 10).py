@@ -1,8 +1,13 @@
-file = open('zadanie24_2 (2).txt', 'r')
-st = file.read().strip()
-n = 1
-while True:
-    if st.count('LDR'*n) == 0:
-        break
-    n += 1
-print(st.count('LDR' * 5))
+def deliteli(x):
+    sp = set()
+    for d in range(1, int(x**0.5) + 1):
+        if x % d == 0:
+            sp.add(d)
+            sp.add(x // d)
+    return sp
+
+
+for num in range(312614, 312651 + 1):
+    res = deliteli(num)
+    if len(res) == 6:
+        print(sorted(res))
