@@ -1,8 +1,11 @@
-print('x y z w res')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            for w in [True, False]:
-                res = x and not y and (not z or w)
-                if res:
-                    print(int(x), int(y), int(z), int(w), int(res))
+for num in range(1000):
+    n = num
+    r = bin(n)[2:]
+    sp = sum(map(int, list(r)))
+    if sp % 2 == 0:
+        r += '00'
+    else:
+        r += '11'
+    res = int(r, 2)
+    if res > 114:
+        print(res, num)
