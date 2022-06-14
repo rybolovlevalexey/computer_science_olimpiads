@@ -1,7 +1,7 @@
-for num in range(1000, 10000):
-    a, b, c, d = map(int, list(str(num)))
-    s1 = a + b
-    s2 = c + d
-    ans = ''.join(map(str, sorted([s1, s2])))
-    if ans == '117':
-        print(num)
+n = 50
+s = 1
+while s < 1000:
+    s *= 2
+    n += 10
+print(n)
+print(2**8)
