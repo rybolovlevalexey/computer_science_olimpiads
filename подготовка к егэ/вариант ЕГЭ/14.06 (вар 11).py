@@ -1,7 +1,4 @@
-print('x y z res')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            res = (not x and y and z) or (not x and not z)
-            if res:
-                print(int(x), int(y), int(z), int(res))
+num = '1000101010011011'
+num = int(num, 2)
+print(num)
+print(oct(num)[2:])
