@@ -1,7 +1,11 @@
-n = 50
-s = 1
-while s < 1000:
-    s *= 2
-    n += 10
-print(n)
-print(2**8)
+cnt = 0
+sp = ['а', 'б', 'в', 'г']
+for i1 in sp:
+    for i2 in sp:
+        for i3 in sp:
+            for i4 in sp:
+                for i5 in sp:
+                    st = i1 + i2 + i3 + i4 + i5
+                    if st.count('а') == 1:
+                        cnt += 1
+print(cnt)
