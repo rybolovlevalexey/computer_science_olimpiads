@@ -1,11 +1,12 @@
-cnt = 0
-sp = ['а', 'б', 'в', 'г']
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                for i5 in sp:
-                    st = i1 + i2 + i3 + i4 + i5
-                    if st.count('а') == 1:
-                        cnt += 1
-print(cnt)
+ams = None
+for num in range(1, 1000):
+    if num % 16 !=0:
+        continue
+    st = bin(num)[2:][::-1]
+    cnt = 0
+    while st[0] == '0':
+        cnt += 1
+        st = st[1:]
+    if ams is None or cnt < ams:
+        ams = cnt
+print(ams)
