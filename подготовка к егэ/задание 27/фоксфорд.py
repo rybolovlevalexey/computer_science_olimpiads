@@ -1,12 +1,15 @@
 def f(n):
-    if n == 0:
-        return 1
-    if n > 0 and n % 5 == 0:
-        return n // 5 + f(n // 5)
-    if n > 0 and n % 5 > 0:
-        return (n % 5) + f(n - 1)
+    sp.append(2*n + 1)
+    if n > 1:
+        sp.append(3*n - 8)
+        f(n - 1)
+        f(n - 4)
+
 
 for num in range(10000):
-    if f(num) == 2021:
-        print(num)
+    sp = list()
+    f(num)
+    res = sum(sp)
+    if res > 5000000:
+        print(num, res)
         break
