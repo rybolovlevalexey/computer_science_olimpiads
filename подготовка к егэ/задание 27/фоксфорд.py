@@ -1,11 +1,12 @@
 def f(n):
-    if n == 1:
-        return 2
-    return f(n - 1) + g(n)
-
-def g(n):
-    if n == 1:
+    if n == 0:
         return 1
-    return f(n - 1) * g(n - 1)
+    if n > 0 and n % 5 == 0:
+        return n // 5 + f(n // 5)
+    if n > 0 and n % 5 > 0:
+        return (n % 5) + f(n - 1)
 
-print(f(5))
+for num in range(10000):
+    if f(num) == 2021:
+        print(num)
+        break
