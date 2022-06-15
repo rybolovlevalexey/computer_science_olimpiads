@@ -1,15 +1,16 @@
+from functools import lru_cache
+
+@lru_cache()
 def f(n):
-    sp.append(2*n + 1)
-    if n > 1:
-        sp.append(3*n - 8)
-        f(n - 1)
-        f(n - 4)
+    if n == 1:
+        return 1
+    return f(n - 1) - 2*g(n - 1)
 
+def g(n):
+    if n == 1:
+        return 1
+    return f(n - 1) + g(n - 1) + n
 
-for num in range(10000):
-    sp = list()
-    f(num)
-    res = sum(sp)
-    if res > 5000000:
-        print(num, res)
-        break
+print(g(36))
+res = sum(map(int, list(str(g(36)))))
+print(res)
