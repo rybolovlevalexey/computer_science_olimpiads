@@ -1,17 +1,18 @@
-file = open('27_3B.txt', 'r')
+file = open('27B.txt', 'r')
 sp = file.read().strip().split('\n')
 n = int(sp[0])
 del sp[0]
 summa = 0
-mndl = None
+ostatki = dict()
 for elem in sp:
-    a, b, c = sorted(map(int, elem.split()))
-    summa += c
-    if b % 5 != 0 and (mndl is None or c - b < mndl) and c - b != 0:
-        mndl = c - b
-    if a % 5 != 0 and (mndl is None or c - a < mndl) and c - a != 0:
-        mndl = c - a
+    a, b = sorted(map(int, elem.split()))
+    summa += b
+    d = b - a
+    if b - a == 6:
+        print('here')
+    if d % 5 in ostatki and ostatki[d % 5] > d:
+        ostatki[d % 5] = d
+    if d % 5 not in ostatki:
+        ostatki[d % 5] = d
 print(summa)
-print(mndl)
-if summa % 5 == 0:
-    print(summa - mndl)
+print(ostatki)
