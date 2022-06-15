@@ -1,27 +1,19 @@
-# 12 25
-dp = [0] * 41
-dp[1] = 1
-for i in range(2, 13):
-    if i % 2 == 0:
-        dp[i] = dp[i // 2] + dp[i - 1]
+file = open('24 (9).txt', 'r')
+sp = file.read().strip().split('\n')
+ansn = None
+ansst = ''
+for elem in sp:
+    if ansn is None or ansn < elem.count('N'):
+        ansn = elem.count('N')
+        ansst = elem
+d = dict()
+for let in ansst:
+    if let in d:
+        d[let] += 1
     else:
-        dp[i] = dp[i - 1]
-print(dp)
-for i in range(12):
-    dp[i] = 0
-print(dp)
-for i in range(13, 26):
-    if i % 2 == 0:
-        dp[i] = dp[i // 2] + dp[i - 1]
-    else:
-        dp[i] = dp[i - 1]
-print(dp)
-for i in range(25):
-    dp[i] = 0
-print(dp)
-for i in range(26, 41):
-    if i % 2 == 0:
-        dp[i] = dp[i // 2] + dp[i - 1]
-    else:
-        dp[i] = dp[i - 1]
-print(dp)
+        d[let] = 1
+ans = list()
+for key in d.keys():
+    if d[key] == max(d.values()):
+        ans.append(key)
+print(ans)
