@@ -1,15 +1,10 @@
 file = open('17_7.txt', 'r')
 sp = list(map(int, file.read().strip().split('\n')))
-cnt = 0
-chet = list(filter(lambda x: x % 2 == 0, sp))
-nechet = list(filter(lambda x: x % 2 != 0, sp))
-src = sum(chet) / len(chet)
-srn = sum(nechet) / len(nechet)
-mxsm = 0
+cnt = mxsm = 0
+sr = sum(sp) / len(sp)
 for i in range(len(sp) - 1):
-    s = sp[i] + sp[i + 1]
-    if src <= s <= srn:
+    if abs(sp[i] - sp[i - 1]) <= 20 and sp[i] + sp[i + 1] > sr:
         cnt += 1
-        if s > mxsm:
-            mxsm = s
+        if sp[i] + sp[i + 1] > mxsm:
+            mxsm = sp[i] + sp[i + 1]
 print(cnt, mxsm)
