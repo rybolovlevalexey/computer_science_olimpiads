@@ -1,18 +1,18 @@
-file = open('28141.txt', 'r')
+file = open('27_B (1).txt', 'r')
 sp = file.read().strip().split('\n')
-s, n = map(int, sp[0].split())
+n = int(sp[0])
 del sp[0]
-sp = sorted(map(int, sp))
 summa = 0
-cnt = 0
-lastelem = 0
+mndl = None
 for elem in sp:
-    if summa + elem <= s:
-        summa += elem
-        lastelem = elem
-        cnt += 1
-summa -= lastelem
-for elem in sp[::-1]:
-    if elem + summa <= s:
-        print(elem)
-        break
+    a, b, c = sorted(map(int, elem.split()))
+    summa += c
+    d1 = c - b
+    d2 = c - a
+    if d1 != 0 and d1 % 109 != 0 and (mndl is None or d1 < mndl):
+        mndl = d1
+    if d2 != 0 and d2 % 109 != 0 and (mndl is None or d2 < mndl):
+        mndl = d2
+print(summa, summa % 109)
+print(mndl)
+print(summa - mndl)
