@@ -1,10 +1,15 @@
-for a in range(0, 1000):
-    flag = True
-    for x in range(1000):
-        res = (x & 51 == 0) or (x & 41 != 0) or (x & a == 0)
-        if not res:
-            flag = False
-            break
-    if flag:
-        print(a)
-        break
+from functools import lru_cache
+
+@lru_cache()
+def f(n):
+    if n > 2:
+        return f(n - 1) + g(n - 2)
+    return n + 1
+@lru_cache()
+def g(n):
+    if n > 2:
+        return g(n - 1) + f(n - 2)
+    return n
+
+
+print(g(77))
