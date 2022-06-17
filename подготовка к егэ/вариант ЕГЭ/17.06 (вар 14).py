@@ -1,9 +1,10 @@
-sp = ['a', 'b', 'c', 'd', 'e']
-cnt = 0
-for i1 in sp[:-1]:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                for i5 in sp[1:]:
-                    cnt += 1
-print(cnt)
+num = 4**511 + 2**511 - 511
+num = bin(num)[2:]
+print(num.count('1'))
+num = 4**511 + 2**511 - 511
+ans = 0
+while num > 0:
+    if num % 2 == 1:
+        ans += 1
+    num //= 2
+print(ans)
