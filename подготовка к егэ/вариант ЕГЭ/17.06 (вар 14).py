@@ -1,16 +1,20 @@
-ansd = 0
-ans = None
-for num in range(568023, 569230+1):
-    sp = set()
-    sp.add(1)
-    sp.add(num)
-    for d in range(2, int(num**0.5) + 1):
-        if num % d == 0:
-            sp.add(d)
-            sp.add(num // d)
-    if ans is None or len(sp) > ansd:
-        ans = num
-        ansd = len(sp)
-    if len(sp) == 144:
-        print(sp)
-print(ansd, ans)
+file = open('28139.txt', 'r')
+sp = file.read().strip().split('\n')
+s, n = map(int, sp[0].split())
+del sp[0]
+sp = list(sorted(map(int, sp)))
+summa = 0
+cnt = 0
+lastelem = 0
+for elem in sp:
+    if elem + summa <= s:
+        summa += elem
+        cnt += 1
+        lastelem = elem
+print(cnt)
+print(summa, s, lastelem)
+summa -= lastelem
+for elem in sp[::-1]:
+    if elem + summa <= s:
+        print(elem)
+        break
