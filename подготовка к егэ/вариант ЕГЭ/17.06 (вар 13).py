@@ -1,8 +1,8 @@
-print('x y z w res')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            for w in [True, False]:
-                res = (not x and not y) or (y == z) or not w
-                if not res:
-                    print(int(x), int(y), int(z), int(w), int(res))
+for num in range(100, 1000):
+    a, b, c = map(int, list(str(num)))
+    s1 = a + b
+    s2 = b + c
+    res = ''.join(list(map(str, sorted([s1, s2])[::-1])))
+    if res == '1412':
+        print(num)
+        break
