@@ -1,12 +1,7 @@
-for num in range(101, 1000):
-    x = num
-    L = x - 30
-    M = x + 30
-    while L != M:
-        if L > M:
-            L = L - M
-        else:
-            M = M - L
-    if M == 30:
-        print(num)
-        break
+n = 1
+file = open('24_demo (2).txt', 'r')
+st = file.read().strip()
+while st.count('Y' * (n + 1)) >= 1:
+    n += 1
+print(n)
+print(st.count('Y' * 11))
