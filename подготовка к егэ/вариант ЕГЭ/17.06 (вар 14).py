@@ -1,10 +1,10 @@
-num = 4**511 + 2**511 - 511
-num = bin(num)[2:]
-print(num.count('1'))
-num = 4**511 + 2**511 - 511
-ans = 0
-while num > 0:
-    if num % 2 == 1:
-        ans += 1
-    num //= 2
-print(ans)
+for a in range(0, 1000):
+    flag = True
+    for x in range(1000):
+        res = (x & 51 == 0) or (x & 41 != 0) or (x & a == 0)
+        if not res:
+            flag = False
+            break
+    if flag:
+        print(a)
+        break
