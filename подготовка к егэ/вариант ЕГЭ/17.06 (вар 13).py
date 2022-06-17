@@ -1,15 +1,18 @@
-for num in range(95632, 95650 + 1):
-    sp = set()
-    sp.add(1)
-    x = num
-    while x % 2 == 0:
-        x //= 2
-    sp.add(x)
-    for d in range(3, int(x**0.5) + 1, 2):
-        if x % d == 0:
-            sp.add(d)
-            sp.add(x // d)
-        if len(sp) > 6:
-            break
-    if len(sp) == 6:
-        print(sorted(sp))
+file = open('28141.txt', 'r')
+sp = file.read().strip().split('\n')
+s, n = map(int, sp[0].split())
+del sp[0]
+sp = sorted(map(int, sp))
+summa = 0
+cnt = 0
+lastelem = 0
+for elem in sp:
+    if summa + elem <= s:
+        summa += elem
+        lastelem = elem
+        cnt += 1
+summa -= lastelem
+for elem in sp[::-1]:
+    if elem + summa <= s:
+        print(elem)
+        break
