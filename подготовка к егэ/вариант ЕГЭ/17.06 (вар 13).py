@@ -1,6 +1,9 @@
-s = 0
-n = 32
-while n > s:
-    s = s + 1
-    n = n - 1
-print(n)
+cnt = 0
+first = ['x', 'y', 'z']
+second = ['a', 'b', 'c', 'd']
+for i1 in first:
+    for i2 in first:
+        for i3 in second:
+            for i4 in second:
+                cnt += 1
+print(cnt)
