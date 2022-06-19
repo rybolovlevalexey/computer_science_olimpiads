@@ -1,13 +1,12 @@
-for num in range(10000):
+for num in range(201, 1000):
     x = num
-    a = 0
-    b = 1
-    while x > 0:
-        if x % 2 == 0:
-            a += x % 7
+    L = 2 * x - 15
+    M = 2 * x + 30
+    while L != M:
+        if L > M:
+            L = L - M
         else:
-            b *= x % 7
-        x //= 7
-    if a == 4 and b == 9:
+            M = M - L
+    if M == 45:
         print(num)
         break
