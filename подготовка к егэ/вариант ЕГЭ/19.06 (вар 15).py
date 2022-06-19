@@ -1,10 +1,9 @@
-cnt = 1
-sp = sorted(['м', 'у', 'х', 'а'])
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                st = i1 + i2 + i3 + i4
-                if st == 'хухх':
-                    print(cnt)
-                cnt += 1
+st = '1' + 99 * '8' + '1'
+while '81' in st or '882' in st or '8883' in st:
+    if '81' in st:
+        st = st.replace('81', '2', 1)
+    elif '882' in st:
+        st = st.replace('882', '3', 1)
+    else:
+        st = st.replace('8883', '1', 1)
+print(st)
