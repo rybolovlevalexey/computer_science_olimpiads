@@ -1,8 +1,11 @@
-print('x y z w res')
-for x in [True, False]:
-    for y in [True, False]:
-        for z in [True, False]:
-            for w in [True, False]:
-                res = (not x or not y or not z or w) and (w or x or not y)
-                if not res:
-                    print(int(x), int(y), int(z), int(w), int(res))
+ans = list()
+for num in range(1000, 10000):
+    a, b, c, d = map(int, list(str(num)))
+    s1 = a + b
+    s2 = b + c
+    s3 = c + d
+    res = ''.join(list(map(str, sorted([s1, s2, s3])[1:])))
+    if res == '1517':
+        ans.append(num)
+print(ans)
+print(max(ans))
