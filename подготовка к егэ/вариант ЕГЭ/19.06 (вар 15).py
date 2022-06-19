@@ -1,7 +1,12 @@
-file = open('zadanie24_2 (3).txt', 'r')
-st = file.read().strip()
-ans = list()
-for i in range(1, 1000):
-    if st.count('L' * i) > 0:
-        ans.append(i)
-print(max(ans))
+for num in range(12, 14 + 1):
+    sp = set()
+    sp.add(1)
+    sp.add(num)
+    for d in range(2, int(num**0.5) + 1):
+        if num % d == 0:
+            sp.add(d)
+            sp.add(num // d)
+        if len(sp) >= 5:
+            break
+    if len(sp) == 4:
+        print(sorted(sp))
