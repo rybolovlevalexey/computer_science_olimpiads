@@ -1,6 +1,10 @@
-s = 0
-n = 0
-while s < 165:
-    s += 15
-    n += 2
-print(n)
+cnt = 1
+sp = sorted(['м', 'у', 'х', 'а'])
+for i1 in sp:
+    for i2 in sp:
+        for i3 in sp:
+            for i4 in sp:
+                st = i1 + i2 + i3 + i4
+                if st == 'хухх':
+                    print(cnt)
+                cnt += 1
