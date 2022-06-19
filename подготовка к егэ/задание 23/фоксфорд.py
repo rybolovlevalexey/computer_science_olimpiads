@@ -1,19 +1,9 @@
-file = open('Zadanie_24_text_dlia_KR_4.txt', 'r')
-st = file.read().strip()
-dl = 1
+file = open('Zadanie-260283 (1).txt', 'r')
+
+st = file.read().strip().split('F')
+print(st.count('FF'))
 mxdl = 0
-s = st[0]
-for i in range(len(st) - 1):
-    if st[i] != st[i + 1]:
-        dl += 1
-        s += st[i + 1]
-    else:
-        if dl > mxdl:
-            mxdl = dl
-            anst = s
-        s = st[i + 1]
-        dl = 1
+for i in range(len(st) - 3):
+    dl = len(st[i]) + len(st[i + 1]) + len(st[i + 2]) + len(st[i + 3]) + 3
+    mxdl = max(mxdl, dl)
 print(mxdl)
-print(dl)
-print(len(anst), anst)
-print(st[st.index(anst) - 1 : st.index(anst) + len(anst) + 2])
