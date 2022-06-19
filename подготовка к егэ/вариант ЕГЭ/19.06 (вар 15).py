@@ -1,7 +1,11 @@
-def f(n):
-    if n > 2:
-        return f(n - 1) + f(n - 2)
-    else:
-        return 1
-
-print(f(6))
+file = open('17 (19).txt', 'r')
+sp = list(map(int, file.read().strip().split('\n')))
+cnt = 0
+mxsm = 0
+for i in range(len(sp) - 1):
+    for j in range(i + 1, len(sp)):
+        if (sp[i] + sp[j]) % 9 == 0:
+            cnt += 1
+            if sp[i] + sp[j] > mxsm:
+                mxsm = sp[i] + sp[j]
+print(cnt, mxsm)
