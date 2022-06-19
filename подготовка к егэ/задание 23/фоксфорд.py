@@ -1,27 +1,10 @@
-dp = [0] * 66
-dp[2] = 1
-for i in range(3, 17):
-    if i % 12 == 0:
-        dp[i] = dp[i - 1] + dp[i // 3] + dp[i // 4]
-    elif i % 3 == 0:
-        dp[i] = dp[i - 1] + dp[i // 3]
-    elif i % 4 == 0:
-        dp[i] = dp[i - 1] + dp[i // 4]
-    else:
-        dp[i] = dp[i - 1]
-print(dp)
-for i in range(16):
-    dp[i] = 0
-print(dp)
-for i in range(17, 66):
-    if i == 21:
-        continue
-    if i % 12 == 0:
-        dp[i] = dp[i - 1] + dp[i // 3] + dp[i // 4]
-    elif i % 3 == 0:
-        dp[i] = dp[i - 1] + dp[i // 3]
-    elif i % 4 == 0:
-        dp[i] = dp[i - 1] + dp[i // 4]
-    else:
-        dp[i] = dp[i - 1]
-print(dp)
+for i in range(1, 50):
+    for j in range(1, 50):
+        for k in range(1, 50):
+            st = '0' + '1' * i + '2' * j + '3' * k
+            while '01' in st or '02' in st or '03' in st:
+                st = st.replace('01', '210', 1)
+                st = st.replace('02', '3101', 1)
+                st = st.replace('03', '2302', 1)
+            if st.count('1') == 52 and st.count('2') == 33 and st.count('3') == 23:
+                print(j)
