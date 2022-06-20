@@ -1,11 +1,26 @@
-for num in range(-1000, 1000):
-    x = num
-    a = 0
-    b = 1
-    while x > 0:
-        a = a + 1
-        b = b * (x % 10)
-        x = x // 10
-    if a == 2 and b == 15:
-        print(num)
-        break
+dp = [0] * 16
+dp[4] = 1
+for i in range(5, 10):
+    if i % 2 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
+for i in range(9):
+    dp[i] = 0
+print(dp)
+for i in range(10, 13):
+    if i % 2 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
+for i in range(12):
+    dp[i] = 0
+print(dp)
+for i in range(13, 16):
+    if i % 2 == 0:
+        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
+    else:
+        dp[i] = dp[i - 1] + dp[i - 2]
+print(dp)
