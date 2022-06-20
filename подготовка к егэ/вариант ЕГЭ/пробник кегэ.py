@@ -1,22 +1,9 @@
-from itertools import product, permutations
-cnt = 0
-sp = ['в', 'з', 'г', 'л', 'я', 'д']
-
-for i1 in sp:
-    for i2 in sp:
-        for i3 in sp:
-            for i4 in sp:
-                st = i1 + i2 + i3 + i4
-                if st.count('з') == 1 or st.count('з') == 2:
-                    cnt += 1
-print(cnt)
-
-words = list(product(sp, repeat=4))
-cnt = 0
-for wor in words:
-    if ''.join(wor).count('з') == 1 or ''.join(wor).count('з') == 2:
-        cnt += 1
-print(cnt)
-
-words = permutations(sp)
-print(*words)
+st = '>' + 11 * '1' + 12 * '2' + 30 * '3'
+while '>1' in st or '>2' in st or '>3' in st:
+    if '>1' in st:
+        st = st.replace('>1', '22>', 1)
+    if '>2' in st:
+        st = st.replace('>2', '222>', 1)
+    if '>3' in st:
+        st = st.replace('>3', '1>', 1)
+print(st.count('2') * 2 + st.count('1'))
