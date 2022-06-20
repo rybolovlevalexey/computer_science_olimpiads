@@ -1,7 +1,12 @@
-num = 16**820 - 2**761 + 14
-cnt = 0
-while num > 0:
-    if num % 4 == 0:
-        cnt += 1
-    num //= 4
-print(cnt)
+ans = list()
+for a in range(10000):
+    flag = True
+    for x in range(10000):
+        res = (x & a == 0) or (x & 17 != 0) or (x & 5 != 0) or (x & 3 != 0)
+        if not res:
+            flag = False
+            break
+    if flag:
+        ans.append(a)
+print(ans)
+print(max(ans))
