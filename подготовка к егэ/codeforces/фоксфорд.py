@@ -1,26 +1,21 @@
-file = open('26 (10)(2).txt', 'r')
+file = open('EGE-inf-26-file7(4).txt', 'r')
 sp = file.read().strip().split('\n')
-n, m = map(int, sp[0].split())
+s, n = map(int, sp[0].split())
 del sp[0]
-sp = sorted(list(map(int, sp)))
+sp = list(sorted(map(int, sp)))
 summa = 0
 cnt = 0
-mxelem = 0
-for elem in sp[::-1]:
-    if 200 <= elem <= 220:
-        summa += elem
-        cnt += 1
-        if elem > mxelem:
-            mxelem = elem
+lastelem = 0
 for elem in sp:
-    if elem + summa <= m and not 200 <= elem <= 220:
-        cnt += 1
+    if summa + elem <= s:
         summa += elem
-        if elem > mxelem:
-            mxelem = elem
-summa -= mxelem
+        cnt += 1
+        lastelem = elem
+summa -= lastelem
+print(cnt)
 for elem in sp[::-1]:
-    if summa + elem <= m:
+    if elem + summa <= s:
+        summa += elem
         print(elem)
-        print(summa, m)
         break
+print(summa, s)
