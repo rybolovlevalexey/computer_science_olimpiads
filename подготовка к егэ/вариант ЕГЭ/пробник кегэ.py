@@ -1,26 +1,19 @@
-dp = [0] * 16
-dp[4] = 1
-for i in range(5, 10):
-    if i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
+file = open('24 (10).txt', 'r')
+st = file.read().strip()
+dl = 1
+mxdl = 0
+ansst = ''
+s = st[0]
+for i in range(1, len(st)):
+    if int(s[-1]) <= int(st[i]):
+        dl += 1
+        s += st[i]
     else:
-        dp[i] = dp[i - 1] + dp[i - 2]
-print(dp)
-for i in range(9):
-    dp[i] = 0
-print(dp)
-for i in range(10, 13):
-    if i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
-    else:
-        dp[i] = dp[i - 1] + dp[i - 2]
-print(dp)
-for i in range(12):
-    dp[i] = 0
-print(dp)
-for i in range(13, 16):
-    if i % 2 == 0:
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i // 2]
-    else:
-        dp[i] = dp[i - 1] + dp[i - 2]
-print(dp)
+        if dl > mxdl:
+            mxdl = dl
+            ansst = s
+        dl = 1
+        s = st[i]
+print(mxdl, ansst)
+print(dl, s)
+print(st[st.index(ansst) - 1: st.index(ansst) + 49 + 1])
