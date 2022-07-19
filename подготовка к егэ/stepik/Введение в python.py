@@ -6,3 +6,13 @@ class Point:
     def dist(self, other):
         res = ((self.x - other.x)**2 + (self.y - other.y)**2)**0.5
         return res
+
+class Circle:
+    def __init__(self, center, radius):
+        self.center = center
+        self.radius = radius
+
+    def square(self):
+        pi = 3.14
+        s = pi * self.radius**2
+        return s
