@@ -23,3 +23,18 @@ class Circle:
             return True
         else:
             return False
+
+    def __eq__(self, other):
+        if self.square() == other.square():
+            return True
+        return False
+
+    def __lt__(self, other):
+        if self.square() < other.square():
+            return True
+        return False
+
+    def __le__(self, other):
+        if self.square() <= other.square():
+            return True
+        return False
