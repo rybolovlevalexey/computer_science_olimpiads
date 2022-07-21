@@ -1,12 +1,15 @@
-sostnow = 0
-ans = list()
+flag = False
 st = input()
-i = 0
-while i < len(st):
-    if st[i] == '|':
-        ans.append(1)
-        i += 2
-    else:
-        ans.append(0)
-        i += 1
-print(''.join(list(map(str, ans))))
+sp = list(st)
+newsp = list()
+for i in range(len(sp)):
+    if 97 <= ord(sp[i]) <= 122:
+        newsp.append(sp[i])
+for i in range(len(newsp)):
+    sp1 = newsp[:i] + newsp[i + 1:]
+    if sp1 == sp1[::-1]:
+        print('True')
+        flag = True
+        break
+if not flag:
+    print('False')
