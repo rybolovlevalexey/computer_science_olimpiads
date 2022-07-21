@@ -1,12 +1,22 @@
-def beegeek(a, b):
-    ans = ''
-    for i in range(a, b + 1):
-        if i % 21 == 0:
-            ans += 'BeeGeek '
-        elif i % 3 == 0:
-            ans += 'Bee '
-        elif i % 7 == 0:
-            ans += 'Geek '
-        else:
-            ans += (str(i) + ' ')
-    return ans.strip()
+first = input()
+second = input()
+fird = dict()
+secd = dict()
+for elem in first:
+    if elem in fird:
+        fird[elem] += 1
+    else:
+        fird[elem] = 1
+for elem in second:
+    if elem in secd:
+        secd[elem] += 1
+    else:
+        secd[elem] = 1
+if len(fird) == len(secd):
+    for key in fird:
+        if fird[key] != secd[key]:
+            print(key)
+else:
+    for key, value in secd.items():
+        if value == 1 and key not in fird:
+            print(key)
