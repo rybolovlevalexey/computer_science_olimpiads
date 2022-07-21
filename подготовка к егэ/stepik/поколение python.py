@@ -1,12 +1,12 @@
-n = int(input())
-num = 1
-cnt = 0
-ans = list()
-while n > 0:
-    ans.append(num)
-    cnt += 1
-    if cnt == num:
-        cnt = 0
-        num += 1
-    n -= 1
-print(*ans)
+def beegeek(a, b):
+    ans = ''
+    for i in range(a, b + 1):
+        if i % 21 == 0:
+            ans += 'BeeGeek '
+        elif i % 3 == 0:
+            ans += 'Bee '
+        elif i % 7 == 0:
+            ans += 'Geek '
+        else:
+            ans += (str(i) + ' ')
+    return ans.strip()
