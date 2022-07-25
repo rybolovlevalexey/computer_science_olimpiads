@@ -1,9 +1,11 @@
-sp = list()
-n = int(input())
-for i in range(n):
-    st = input()
-    sp.append(list(map(int, list(st))))
-dp = list()
-for i in range(n):
-    dp.append(list('*' * n))
-dp[0][0] = sp[0][0]
+t = int(input())
+while t > 3600 * 24:
+    t -= 3600 * 24
+h = t // 3600
+t = t - h * 3600
+s = t % 60
+m = t // 60
+s = t - m * 60
+s = '0' * (2 - len(str(s))) + str(s)
+m = '0' * (2 - len(str(m))) + str(m)
+print(f'{h}:{m}:{s}')
