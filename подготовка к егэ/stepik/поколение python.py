@@ -1,11 +1,19 @@
 n = int(input())
-t = n * 45
-t += 15 * ((n % 2 + 1) % 2)
-if n % 2 == 1:
-    n -= 1
-else:
-    n -= 2
-t += n // 2 * 20
-h = 9 + t // 60
-m = t % 60
-print(h, m)
+i = 1
+num = 1
+sp = list()
+while len(sp) < n:
+    r = list()
+    for j in range(num, num + i):
+        r.append(j)
+    print(r)
+    num += i
+    i += 1
+    r = r[::-1]
+    sp.extend(r)
+ans = list()
+i = 0
+while len(ans) < n:
+    ans.append(sp[i])
+    i += 1
+print(*ans)
