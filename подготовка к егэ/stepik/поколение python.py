@@ -1,9 +1,17 @@
-ans = 0  # количество счастливых билетов
-cnt = int(input())  # количество билетов
-for i in range(cnt):
-    num = int(input())  # текущий билет
-    first = sum(map(int, list(str(num)[:3])))  # сумма первых трёх цифр
-    second = sum(map(int, list(str(num)[3:])))  # сумма вторых трёх цифр
-    if first == second:
-        ans += 1
-print(ans)  # вывод количества счастливых билетов
+st = input()
+num = 0
+flag = True
+for elem in st:
+    if elem == '(':
+        num += 1
+    else:
+        num -= 1
+    if num < 0:
+        flag = False
+        break
+if num != 0:
+    flag = False
+if flag:
+    print('Good')  # выводится в том случае, если последовательность составлена корректно
+else:
+    print('Bad')  # выводится в том случае, если последовательность составлена некорректно
