@@ -1,18 +1,12 @@
-school = dict()
-for _ in range(int(input())):
-    family = input()
-    name = input()
-    clas = input()
-    bdate = input()
-    if clas in school:
-        school[clas] += [family + " " + name + " " + bdate]
-    else:
-        school[clas] = [family + " " + name + " " + bdate]
-for key in sorted(school.keys()):
-    oneclass = school[key]
-    for i in range(len(oneclass) - 1):
-        for j in range(i, len(oneclass) - 1):
-            if oneclass[j] > oneclass[j + 1]:
-                oneclass[j], oneclass[j + 1] = oneclass[j + 1], oneclass[j]
-    for elem in oneclass:
-        print(key + " " + elem)
+sp = ['1', '2', '2', '3', '3']
+ans = set()
+for i1 in range(5):
+    for i2 in range(5):
+        for i3 in range(5):
+            for i4 in range(5):
+                for i5 in range(5):
+                    if i1 + i2 + i3 + i4 + i5 == 10:
+                        st = sp[i1] + sp[i2] + sp[i3] + sp[i4] + sp[i5]
+                        ans.add(st)
+                        print(st)
+print(len(ans))
