@@ -1,12 +1,10 @@
-import itertools
-
-st = input()
-if len(st) == 0:
-    print([[], [st]])
-else:
-    st = st.split()
-    ans = list()
-    ans.append([])
-    for d in range(1, len(st) + 1):
-        line = itertools.permutations(st, d)
-        print(list(line))
+st = input().split()
+ans = list()
+ans.append([])
+for d in range(len(st) + 1):
+    for s in range(len(st)):
+        if s + d >= len(st):
+            break
+        subset = st[s:s+d+1]
+        ans.append(subset)
+print(ans)
