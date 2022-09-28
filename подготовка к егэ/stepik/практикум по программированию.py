@@ -1,14 +1,12 @@
-st = input().split()
-ans = list()
-sp = list()
-for elem in st:
-    if len(sp) == 0:
-        sp.append(elem)
-    else:
-        if sp[-1] == elem:
-            sp.append(elem)
-        else:
-            ans.append(sp)
-            sp = [elem]
-ans.append(sp)
-print(ans)
+import itertools
+
+st = input()
+if len(st) == 0:
+    print([[], [st]])
+else:
+    st = st.split()
+    ans = list()
+    ans.append([])
+    for d in range(1, len(st) + 1):
+        line = itertools.permutations(st, d)
+        print(list(line))
