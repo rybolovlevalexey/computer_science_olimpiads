@@ -1,17 +1,13 @@
-st = input()
-num = 0
-flag = True
-for elem in st:
-    if elem == '(':
-        num += 1
-    else:
-        num -= 1
-    if num < 0:
-        flag = False
+n = int(input())
+num = 1
+cnt = 1
+while True:
+    if cnt + len(str(num)) > n:
+        st = str(num)[::-1]
+        while cnt < n:
+            st = st[1:]
+            cnt += 1
+        print(st[0])
         break
-if num != 0:
-    flag = False
-if flag:
-    print('Good')  # выводится в том случае, если последовательность составлена корректно
-else:
-    print('Bad')  # выводится в том случае, если последовательность составлена некорректно
+    cnt += len(str(num))
+    num += 1
