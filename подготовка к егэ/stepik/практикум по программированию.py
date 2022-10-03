@@ -1,16 +1,37 @@
+n = int(input())
+flag = True
+check = None
 sp = list()
-for i in range(8):
-    line = ["." for j in range(8)]
+for i in range(n):
+    line = list(map(int, input().split()))
+    if check is None:
+        check = sum(line)
+    if check != sum(line):
+        flag = False
     sp.append(line)
-st = input()
-letters = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, }
-x = letters[st[0]] - 1
-y = 8 - int(st[1])
-sp[y][x] = "N"
-for i in [-1, -2, 1, 2]:
-    for j in [-1, -2, 1, 2]:
-        if abs(i) != abs(j):
-            if 0 <= x + i <= 7 and 0 <= y + j <= 7:
-                sp[y + j][x + i] = "*"
-for elem in sp:
-    print(*elem)
+s1 = 0
+s2 = 0
+for j in range(n):
+    s1 += sp[j][j]
+    s2 += sp[j][n - j - 1]
+if s1 != check or s2 != check:
+    flag = False
+numbers = set()
+for j in range(n):
+    s = 0
+    for i in range(n):
+        s += sp[i][j]
+        numbers.add(sp[i][j])
+    if s != check:
+        flag = False
+if len(numbers) != n**2:
+    flag = False
+if not flag:
+    print("NO")
+else:
+    numbers = sorted(numbers)
+    for i in range(n**2):
+        if numbers[i] != i + 1:
+            flag = False
+            break
+    print("YES" if flag else "NO")
