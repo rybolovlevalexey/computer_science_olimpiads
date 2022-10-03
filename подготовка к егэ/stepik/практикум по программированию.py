@@ -1,14 +1,13 @@
-n, m = map(int, input().split())
+n = int(input())
 for i in range(n):
-    sp = list()
-    if i % 2 == 0:
-        dot = 1
-    else:
-        dot = -1
-    for j in range(m):
-        if dot == 1:
-            sp.append(".")
+    flag = True
+    for j in range(n):
+        if i == n - j - 1:
+            print(1, end=" ")
+            flag = False
         else:
-            sp.append("*")
-        dot *= -1
-    print(*sp)
+            if flag:
+                print(0, end=" ")
+            else:
+                print(2, end=" ")
+    print()
