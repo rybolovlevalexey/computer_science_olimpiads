@@ -1,8 +1,13 @@
-n = int(input())
-sp = list()
+n, m = map(int, input().split())
+sp1 = list()
+sp2 = list()
 for i in range(n):
-    if 0 <= i <= 2:
-        sp.append(1)
-    else:
-        sp.append(sp[-1] + sp[-2] + sp[-3])
-print(*sp)
+    line = list(map(int, input().split()))
+    sp1.append(line)
+input()
+for i in range(n):
+    j = 0
+    for elem in map(int, input().split()):
+        print(elem + sp1[i][j], end=" ")
+        j += 1
+    print()
