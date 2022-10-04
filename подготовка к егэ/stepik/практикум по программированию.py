@@ -1,13 +1,8 @@
-n, m = map(int, input().split())
-sp1 = list()
-sp2 = list()
+st = input().split()
+n = int(input())
+ans_d = dict()
 for i in range(n):
-    line = list(map(int, input().split()))
-    sp1.append(line)
-input()
-for i in range(n):
-    j = 0
-    for elem in map(int, input().split()):
-        print(elem + sp1[i][j], end=" ")
-        j += 1
-    print()
+    ans_d[i] = list()
+for i in range(len(st)):
+    ans_d[i % n].append(st[i])
+print(list(value for value in ans_d.values()))
