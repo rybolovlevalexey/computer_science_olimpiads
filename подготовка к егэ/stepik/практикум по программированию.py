@@ -1,18 +1,8 @@
-n, m = map(int, input().split())
-num = 1
-flag = True
+n = int(input())
+sp = list()
 for i in range(n):
-    line = list()
-    for j in range(m):
-        if flag:
-            line.append(num)
-        else:
-            line = [num] + line
-        num += 1
-    if flag:
-        flag = False
+    if 0 <= i <= 2:
+        sp.append(1)
     else:
-        flag = True
-    for elem in line:
-        print(str(elem).ljust(3), end='')
-    print()
+        sp.append(sp[-1] + sp[-2] + sp[-3])
+print(*sp)
