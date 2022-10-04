@@ -1,11 +1,15 @@
 n = int(input())
-sp = list(list(map(int, input().split())) for _ in range(n))
+sp = list()
 flag = True
 for i in range(n):
-    for j in range(n - i):
-        if i == n - 1 - j:
-            continue
-        if int(sp[i][j]) == int(sp[n - j - 1][n - i - 1]):
-            continue
+    line = list(map(int, input().split()))
+    sp.append(line)
+    if list(sorted(set(line))) != list(i+1 for i in range(n)):
         flag = False
-print('YES' if flag else 'NO')
+for j in range(n):
+    line = set()
+    for i in range(n):
+        line.add(sp[i][j])
+    if list(sorted(line)) != list(i+1 for i in range(n)):
+        flag = False
+print("YES" if flag else "NO")
