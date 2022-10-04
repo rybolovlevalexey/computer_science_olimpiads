@@ -1,8 +1,9 @@
 n = int(input())
-sp = list(['*'] * n for i in range(n))
 for i in range(n):
-    st = input().split()
+    st = list()
     for j in range(n):
-        sp[j][i] = st[j]
-for elem in sp:
-    print(*elem, sep=' ')
+        if i == j or i == n - 1 - j or j == n // 2 or i == n // 2:
+            st.append("*")
+        else:
+            st.append(".")
+    print(*st, sep=' ')
