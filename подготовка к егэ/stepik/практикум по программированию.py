@@ -1,9 +1,11 @@
 n = int(input())
+sp = list(list(map(int, input().split())) for _ in range(n))
+flag = True
 for i in range(n):
-    st = list()
-    for j in range(n):
-        if i == j or i == n - 1 - j or j == n // 2 or i == n // 2:
-            st.append("*")
-        else:
-            st.append(".")
-    print(*st, sep=' ')
+    for j in range(n - i):
+        if i == n - 1 - j:
+            continue
+        if int(sp[i][j]) == int(sp[n - j - 1][n - i - 1]):
+            continue
+        flag = False
+print('YES' if flag else 'NO')
