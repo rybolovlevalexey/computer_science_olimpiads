@@ -1,5 +1,25 @@
-dic = {"CS101": "3004, Хайнс, 8:00", "CS102": "4501, Альварадо, 9:00",
-       "CS103": "6755, Рич, 10:00", "NT110": "1244, Берк, 11:00",
-       "CM241": "1411, Ли, 13:00"}
-key = input()
-print(f'{key}: {dic[key]}')
+dic = {'1': '.,?!:', '2': 'ABC', '3': 'DEF', '4': 'GHI', '5': 'JKL', '6': 'MNO',
+       '7': 'PQRS', '8': 'TUV', '9': 'WXYZ', '0': ' '}
+letters = ''
+for key, value in dic.items():
+    letters += key
+    letters += value
+st = input().upper()
+ans = ''
+print(letters)
+for let in st:
+    if let not in letters:
+        continue
+    if let in dic.keys():
+        ans += let
+    else:
+        n = 0
+        for key, value in dic.items():
+            if let not in value:
+                continue
+            for elem in value:
+                n += 1
+                if elem == let:
+                    ans += key * n
+                    break
+print(ans)
