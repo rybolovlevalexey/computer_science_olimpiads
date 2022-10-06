@@ -1,5 +1,5 @@
-dic = {0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven',
-       8: 'eight', 9: 'nine'}
-st = input()
-for elem in st:
-    print(dic[int(elem)], end=' ')
+dic = {"CS101": "3004, Хайнс, 8:00", "CS102": "4501, Альварадо, 9:00",
+       "CS103": "6755, Рич, 10:00", "NT110": "1244, Берк, 11:00",
+       "CM241": "1411, Ли, 13:00"}
+key = input()
+print(f'{key}: {dic[key]}')
