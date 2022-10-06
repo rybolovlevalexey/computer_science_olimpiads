@@ -1,25 +1,11 @@
-dic = {'1': '.,?!:', '2': 'ABC', '3': 'DEF', '4': 'GHI', '5': 'JKL', '6': 'MNO',
-       '7': 'PQRS', '8': 'TUV', '9': 'WXYZ', '0': ' '}
-letters = ''
-for key, value in dic.items():
-    letters += key
-    letters += value
-st = input().upper()
-ans = ''
-print(letters)
-for let in st:
-    if let not in letters:
-        continue
-    if let in dic.keys():
-        ans += let
-    else:
-        n = 0
-        for key, value in dic.items():
-            if let not in value:
-                continue
-            for elem in value:
-                n += 1
-                if elem == let:
-                    ans += key * n
-                    break
-print(ans)
+morze = {'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.', 'f': '..-.', 'g': '--.',
+         'h': '....', 'i': '..', 'j': '.---', 'k': '-.-', 'l': '.-..', 'm': '--', 'n': '-.',
+         'o': '---', 'p': '.--.', 'q': '--.-', 'r': '.-.', 's': '...', 't': '-', 'u': '..-',
+         'v': '...-', 'w': '.--', 'x': '-..-', 'y': '-.--', 'z': '--..', '0': '-----', '1': '.----',
+         '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+         '8': '---..', '9': '----.'}
+
+st = input().lower()
+for el in st:
+    if el in morze.keys():
+        print(morze.get(el), end=' ')
