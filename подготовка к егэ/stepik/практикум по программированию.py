@@ -1,24 +1,20 @@
-pets = [('Hatiko', 'Parker', 'Wilson', 50),
-        ('Rusty', 'Josh', 'King', 25),
-        ('Fido', 'John', 'Smith', 28),
-        ('Butch', 'Jake', 'Smirnoff', 18),
-        ('Odi', 'Emma', 'Wright', 18),
-        ('Balto', 'Josh', 'King', 25),
-        ('Barry', 'Josh', 'King', 25),
-        ('Snape', 'Hannah', 'Taylor', 40),
-        ('Horry', 'Martha', 'Robinson', 73),
-        ('Giro', 'Alex', 'Martinez', 65),
-        ('Zooma', 'Simon', 'Nevel', 32),
-        ('Lassie', 'Josh', 'King', 25),
-        ('Chase', 'Martha', 'Robinson', 73),
-        ('Ace', 'Martha', 'Williams', 38),
-        ('Rocky', 'Simon', 'Nevel', 32)]
-
-result = {}
-for elem in pets:
-    dog, *man = elem
-    man = tuple(man)
-    if man in result:
-        result[man].append(dog)
+st = input()
+for i in '.,!?:;-':
+    st = st.replace(i + ' ', ' ')
+    st = st.replace(i, ' ')
+st = st.split()
+words = dict()
+for wor in st:
+    if wor in words:
+        words[wor] += 1
     else:
-        result[man] = [dog]
+        words[wor] = 1
+mn = None
+ans = ''
+for key, value in words.items():
+    if mn is None or mn > value:
+        mn = value
+        ans = key
+    if mn == value and ans > key:
+        ans = key
+print(ans)
