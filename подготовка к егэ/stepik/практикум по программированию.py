@@ -1,5 +1,6 @@
-ans = set()
-for i in range(int(input())):
-    for elem in input().lower():
-        ans.add(elem)
-print(len(ans))
+st = input()
+for elem in '.,;:-?!':
+    st = st.replace(elem, ' ')
+while '  ' in st:
+    st = st.replace('  ', ' ')
+print(len(set(map(lambda x: x.lower(), st.split()))))
