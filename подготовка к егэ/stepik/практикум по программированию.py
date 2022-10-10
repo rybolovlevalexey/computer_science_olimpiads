@@ -1,6 +1,9 @@
-st = input()
-for elem in '.,;:-?!':
-    st = st.replace(elem, ' ')
-while '  ' in st:
-    st = st.replace('  ', ' ')
-print(len(set(map(lambda x: x.lower(), st.split()))))
+ans = set()
+st = input().split()
+for elem in st:
+    elem = int(elem)
+    if elem in ans:
+        print('YES')
+    else:
+        print('NO')
+        ans.add(elem)
