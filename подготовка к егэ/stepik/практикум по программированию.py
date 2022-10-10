@@ -1,20 +1,15 @@
-st = input()
-for i in '.,!?:;-':
-    st = st.replace(i + ' ', ' ')
-    st = st.replace(i, ' ')
-st = st.split()
-words = dict()
-for wor in st:
-    if wor in words:
-        words[wor] += 1
-    else:
-        words[wor] = 1
-mn = None
-ans = ''
-for key, value in words.items():
-    if mn is None or mn > value:
-        mn = value
-        ans = key
-    if mn == value and ans > key:
-        ans = key
-print(ans)
+n, m = map(int, input().split())
+sp = [['*'] * m for i in range(n)]
+start = 1
+for i in range(n):
+    num = start
+    for j in range(m):
+        sp[i][j] = num
+        num += 1
+        if num > m:
+            num = 1
+    start += 1
+    if start > m:
+        start = 1
+for elem in sp:
+    print(*elem, sep=' ')
