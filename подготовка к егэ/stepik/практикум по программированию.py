@@ -7,4 +7,8 @@ for i in range(n + m):
         words[st] += 1
     else:
         words[st] = 1
-print(len(list(filter(lambda x: words[x] == 1, words.keys()))))
+res = len(list(filter(lambda x: words[x] == 1, words.keys())))
+if res == 0:
+    print('NO')
+else:
+    print(res)
