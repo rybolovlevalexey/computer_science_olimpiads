@@ -1,11 +1,9 @@
 m = int(input())
 n = int(input())
-sp = set()
+math = set()
+inf = set()
 for i in range(m):
-    sp.add(input())
+    math.add(input())
 for i in range(n):
-    town = input()
-    if town in sp:
-        print('YES')
-    else:
-        print('NO')
+    inf.add(input())
+print(len(math - inf))
