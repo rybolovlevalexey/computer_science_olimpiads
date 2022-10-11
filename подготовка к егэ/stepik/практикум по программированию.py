@@ -1,9 +1,8 @@
+n = int(input())
 ans = set()
-st = input().split()
-for elem in st:
-    elem = int(elem)
-    if elem in ans:
-        print('YES')
+for i in range(n):
+    if i == 0:
+        ans = set(input())
     else:
-        print('NO')
-        ans.add(elem)
+        ans = ans & set(input())
+print(*sorted(map(int, ans)) if len(ans) > 0 else '')
