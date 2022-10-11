@@ -1,1 +1,3 @@
-print('YES' if len(set(input()) & set(input())) > 0 else 'NO')
+first = set(input())
+second = set(input())
+print('YES' if len(first & second) == len(second) else 'NO')
