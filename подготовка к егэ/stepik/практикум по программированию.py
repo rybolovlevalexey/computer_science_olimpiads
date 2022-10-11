@@ -7,4 +7,4 @@ for i in range(n + m):
         words[st] += 1
     else:
         words[st] = 1
-print(len(filter(lambda x: words[x] == 1, words.keys())))
+print(len(list(filter(lambda x: words[x] == 1, words.keys()))))
