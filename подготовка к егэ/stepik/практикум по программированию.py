@@ -1,14 +1,12 @@
 m = int(input())
-n = int(input())
-words = dict()
-for i in range(n + m):
-    st = input()
-    if st in words:
-        words[st] += 1
+ans = set()
+for i in range(m):
+    n = int(input())
+    lesson = set()
+    for j in range(n):
+        lesson.add(input())
+    if i == 0:
+        ans = lesson
     else:
-        words[st] = 1
-res = len(list(filter(lambda x: words[x] == 1, words.keys())))
-if res == 0:
-    print('NO')
-else:
-    print(res)
+        ans = ans & lesson
+print(*sorted(ans), sep='\n')
