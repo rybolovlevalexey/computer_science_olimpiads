@@ -1,12 +1,9 @@
-m = int(input())
-ans = set()
-for i in range(m):
-    n = int(input())
-    lesson = set()
-    for j in range(n):
-        lesson.add(input())
-    if i == 0:
-        ans = lesson
+st = input().split()
+letters = dict()
+for let in st:
+    if let in letters:
+        print(f'{let}_{letters[let]}', end=' ')
+        letters[let] += 1
     else:
-        ans = ans & lesson
-print(*sorted(ans), sep='\n')
+        print(let, end=' ')
+        letters[let] = 1
