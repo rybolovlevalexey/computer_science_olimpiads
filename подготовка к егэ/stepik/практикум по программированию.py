@@ -1,17 +1,11 @@
-st = input()
-shifr = dict()
-for elem in st:
-    if elem in shifr:
-        shifr[elem] += 1
-    else:
-        shifr[elem] = 1
-n = int(input())
-letters = dict()
-for i in range(n):
-    let, cnt = input().split(': ')
-    cnt = int(cnt)
-    for key, value in shifr.items():
-        if value == cnt:
-            letters[key] = let
-for elem in st:
-    print(letters[elem], end='')
+emails = {'nosu.edu': ['timyr', 'joseph', 'svetlana.gaeva', 'larisa.mamuk'],
+          'gmail.com': ['ruslan.chaika', 'rustam.mini', 'stepik-best'],
+          'msu.edu': ['apple.fruit', 'beegeek', 'beegeek.school'],
+          'yandex.ru': ['surface', 'google'],
+          'hse.edu': ['tomas-henders', 'cream.soda', 'zivert'],
+          'mail.ru': ['angel.down', 'joanne', 'the.fame.moster']}
+ans = list()
+for key, value in emails.items():
+    for name in value:
+        ans.append(name + '@' + key)
+print(*sorted(ans))
