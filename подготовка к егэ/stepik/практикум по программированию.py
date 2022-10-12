@@ -1,10 +1,14 @@
-st = input()
-while '  ' in st:
-    st = st.replace('  ', ' ')
-let = dict()
-for elem in st.split():
-    if elem in let:
-        let[elem] += 1
+let = {10: 'qz', 8: 'jx', 5: 'k', 4: 'fhvwy', 3: 'bcmp', 2: 'dg'}
+letters = ''
+for value in let.values():
+    letters += value
+st = input().lower()
+su = 0
+for i in st:
+    if i not in letters:
+        su += 1
     else:
-        let[elem] = 1
-    print(let[elem], end=' ')
+        for key, value in let.items():
+            if i in value:
+                su += key
+print(su)
