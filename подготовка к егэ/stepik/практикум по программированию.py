@@ -1,13 +1,16 @@
 n = int(input())
-ddeyst = {'execute':'X', 'write':'W', 'read':'R'}
-files = dict()
+info = dict()
 for i in range(n):
-    name, *fich = input().split()
-    files[name] = fich
-print(files)
-for j in range(int(input())):
-    deyst, name = input().split()
-    if name in files and ddeyst[deyst] in files[name]:
-        print('OK')
+    name, thing, cnt = input().split()
+    cnt = int(cnt)
+    if name not in info:
+        info[name] = {thing: cnt}
     else:
-        print('Access denied')
+        if thing in info[name]:
+            info[name][thing] += cnt
+        else:
+            info[name][thing] = cnt
+for name in sorted(info.keys()):
+    print(name + ':')
+    for key in sorted(info[name].keys()):
+        print(key, info[name][key])
