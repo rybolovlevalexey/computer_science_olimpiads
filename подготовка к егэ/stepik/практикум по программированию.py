@@ -1,7 +1,10 @@
-dnk = {'g': 'c', 'c': 'g', 't': 'a', 'a': 'u'}
 st = input()
-ans = ''
-for elem in st:
-    ans += dnk[elem.lower()]
-ans = ans.upper()
-print(ans)
+while '  ' in st:
+    st = st.replace('  ', ' ')
+let = dict()
+for elem in st.split():
+    if elem in let:
+        let[elem] += 1
+    else:
+        let[elem] = 1
+    print(let[elem], end=' ')
