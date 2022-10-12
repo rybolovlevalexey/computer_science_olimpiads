@@ -1,23 +1,11 @@
-st1 = input()
-st2 = input()
-if len(st1) == len(st2):
-    letters = dict()
-    for i in range(len(st1)):
-        if st1[i] in letters:
-            letters[st1[i]] += 1
-        else:
-            letters[st1[i]] = 1
-        if st2[i] in letters:
-            letters[st2[i]] -= 1
-        else:
-            letters[st2[i]] = -1
-    flag = True
-    for value in letters.values():
-        if value != 0:
-            flag = False
-    if flag:
-        print('YES')
+n = int(input())
+numbers = dict()
+for i in range(n):
+    number, name = input().split()
+    name = name.lower()
+    if name in numbers:
+        numbers[name.lower()] += [number]
     else:
-        print('NO')
-else:
-    print('NO')
+        numbers[name.lower()] = [number]
+for i in range(int(input())):
+    print(*numbers.get(input().lower(), 'абонент не найден'.split()))
