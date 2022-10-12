@@ -4,13 +4,13 @@ if len(st1) == len(st2):
     letters = dict()
     for i in range(len(st1)):
         if st1[i] in letters:
-            letters[i] += 1
+            letters[st1[i]] += 1
         else:
-            letters[i] = 1
+            letters[st1[i]] = 1
         if st2[i] in letters:
-            letters[i] -= 1
+            letters[st2[i]] -= 1
         else:
-            letters[i] = -1
+            letters[st2[i]] = -1
     flag = True
     for value in letters.values():
         if value != 0:
