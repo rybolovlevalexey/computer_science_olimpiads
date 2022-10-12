@@ -1,14 +1,13 @@
-let = {10: 'qz', 8: 'jx', 5: 'k', 4: 'fhvwy', 3: 'bcmp', 2: 'dg'}
-letters = ''
-for value in let.values():
-    letters += value
-st = input().lower()
-su = 0
-for i in st:
-    if i not in letters:
-        su += 1
+n = int(input())
+ddeyst = {'execute':'X', 'write':'W', 'read':'R'}
+files = dict()
+for i in range(n):
+    name, *fich = input().split()
+    files[name] = fich
+print(files)
+for j in range(int(input())):
+    deyst, name = input().split()
+    if name in files and ddeyst[deyst] in files[name]:
+        print('OK')
     else:
-        for key, value in let.items():
-            if i in value:
-                su += key
-print(su)
+        print('Access denied')
