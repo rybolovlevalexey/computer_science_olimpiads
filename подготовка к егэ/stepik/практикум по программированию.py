@@ -1,16 +1,18 @@
-n = int(input())
-info = dict()
-for i in range(n):
-    name, thing, cnt = input().split()
-    cnt = int(cnt)
-    if name not in info:
-        info[name] = {thing: cnt}
-    else:
-        if thing in info[name]:
-            info[name][thing] += cnt
+import random
+
+length = int(input())    # длина пароля
+ans = ''
+while len(ans) < length:
+    if ans == '':
+        if random.randint(0, 2) == 0:
+            ans += chr(random.randint(65, 90)).lower()
+            ans += chr(random.randint(65, 90))
         else:
-            info[name][thing] = cnt
-for name in sorted(info.keys()):
-    print(name + ':')
-    for key in sorted(info[name].keys()):
-        print(key, info[name][key])
+            ans += chr(random.randint(65, 90))
+            ans += chr(random.randint(65, 90)).lower()
+    else:
+        if random.randint(0, 2) == 0:
+            ans += chr(random.randint(65, 90)).lower()
+        else:
+            ans += chr(random.randint(65, 90))
+print(ans)
