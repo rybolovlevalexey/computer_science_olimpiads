@@ -1,3 +1,8 @@
-is_non_negative_num = lambda x: (type(x) == int or type(x) == float) and int(x) >= 0
-num = '10.45'
-print(type(num) == int, type(num) == float, float(num) >= 0)
+import random
+
+file = open('data.txt', 'w')
+sp = list()
+for i in range(10**8):
+    num = random.randint(1, 10**6)
+    file.write(str(num) + '\n')
+file.close()
