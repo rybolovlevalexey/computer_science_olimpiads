@@ -1,2 +1,7 @@
-text = map(lambda x: x.strip(), open('lines.txt').readlines())
-print(*filter(lambda x: len(x) == len(max(text, key=len)), text), sep='\n')
+file = open('numbers.txt')
+sp = file.readlines()
+for line in sp:
+    line = line.strip()
+    while '  ' in line:
+        line = line.replace('  ', ' ')
+    print(sum(map(int, line.split())))
