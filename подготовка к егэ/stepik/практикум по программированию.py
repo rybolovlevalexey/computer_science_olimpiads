@@ -1,12 +1,14 @@
-def evaluate(coefficients, x):
-    ans = 0
-    i = len(coefficients) - 1
-    for elem in coefficients:
-        ans += elem * x**i
-        i -= 1
-    return ans
-
-
-coef = list(map(int, input().split()))
-x = int(input())
-print(evaluate(coef, x))
+n = int(input())
+mxdl = None
+dl = 0
+for i in range(n):
+    num = int(input())
+    if num == 1:
+        dl += 1
+        if mxdl is None or dl > mxdl:
+            mxdl = dl
+    else:
+        dl = 0
+if mxdl is None:
+    mxdl = 0
+print(mxdl)
