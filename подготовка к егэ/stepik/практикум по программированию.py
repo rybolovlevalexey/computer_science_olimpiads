@@ -1,13 +1,9 @@
 import random
-sp = set()
-for i in range(5):
-    for j in range(5):
-        if i == 2 and j == 2:
-            print('  0', end='')
-        else:
-            num = str(random.randint(1, 75))
-            while num not in sp:
-                num = str(random.randint(1, 75))
-            sp.add(num)
-            print(' ' * (3 - len(num)) + num, end='')
-    print()
+sp = list()
+for i in range(int(input())):
+    sp.append(input())
+friends = sp[::-1]
+if len(sp) % 2 == 1:
+    friends[len(sp) // 2], friends[-1] = friends[-1], friends[len(sp) // 2]
+for i in range(len(sp)):
+    print(sp[i], friends[i], sep=' - ')
