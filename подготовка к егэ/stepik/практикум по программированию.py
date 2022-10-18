@@ -1,7 +1,4 @@
 from decimal import *
 num = Decimal(input())
-print(num.as_tuple().digits)
-if abs(num) >= 1:
-    print(max(num.as_tuple().digits) + min(num.as_tuple().digits))
-else:
-    print(max(num.as_tuple().digits))
+res = num.exp() + num.ln() + num.log10() + num.sqrt()
+print(res)
