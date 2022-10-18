@@ -1,8 +1,13 @@
 import random
 sp = set()
-while len(sp) < 100:
-    ans = str(random.randint(1, 9))
-    for j in range(6):
-        ans += str(random.randint(0, 9))
-    sp.add(ans)
-print(*sp, sep='\n')
+for i in range(5):
+    for j in range(5):
+        if i == 2 and j == 2:
+            print('  0', end='')
+        else:
+            num = str(random.randint(1, 75))
+            while num not in sp:
+                num = str(random.randint(1, 75))
+            sp.add(num)
+            print(' ' * (3 - len(num)) + num, end='')
+    print()
