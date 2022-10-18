@@ -1,14 +1,8 @@
-n = int(input())
-mxdl = None
-dl = 0
-for i in range(n):
-    num = int(input())
-    if num == 1:
-        dl += 1
-        if mxdl is None or dl > mxdl:
-            mxdl = dl
-    else:
-        dl = 0
-if mxdl is None:
-    mxdl = 0
-print(mxdl)
+import random
+sp = set()
+while len(sp) < 100:
+    ans = str(random.randint(1, 9))
+    for j in range(6):
+        ans += str(random.randint(0, 9))
+    sp.add(ans)
+print(*sp, sep='\n')
