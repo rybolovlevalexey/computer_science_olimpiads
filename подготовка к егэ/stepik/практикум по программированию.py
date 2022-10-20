@@ -9,10 +9,9 @@ def prost(x, y):
     return True
 
 n = int(input())
-for ch in range(n - 1, 0, -1):
-    zn = n - ch
-    if ch > zn:
-        continue
-    if prost(zn, ch):
-        print(Fraction(ch, zn))
-        break
+ans = list()
+for zn in range(2, n + 1):
+    for ch in range(1, zn):
+        if prost(zn, ch):
+            ans.append(Fraction(ch, zn))
+print(*sorted(ans), sep='\n')
