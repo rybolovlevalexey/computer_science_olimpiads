@@ -1,8 +1,8 @@
 from fractions import Fraction
 
-m = Fraction(input())
-n = Fraction(input())
-print(f'{m} + {n} = {m + n}')
-print(f'{m} - {n} = {m - n}')
-print(f'{m} * {n} = {m * n}')
-print(f'{m} / {n} = {m / n}')
+m = (input())
+n = (input())
+print(f'{m} + {n} = {Fraction(m) + Fraction(n)}')
+print(f'{m} - {n} = {Fraction(m) - Fraction(n)}')
+print(f'{m} * {n} = {Fraction(m) * Fraction(n)}')
+print(f'{m} / {n} = {Fraction(m) / Fraction(n)}')
