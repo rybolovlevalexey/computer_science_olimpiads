@@ -1,17 +1,54 @@
-from fractions import Fraction
-
-def prost(x, y):
-    if max(x, y) % min(x, y) == 0 and min(x, y) != 1:
-        return False
-    for d in range(2, min(x, y) // 2 + 1):
-        if x % d == 0 and y % d == 0:
-            return False
-    return True
-
 n = int(input())
-ans = list()
-for zn in range(2, n + 1):
-    for ch in range(1, zn):
-        if prost(zn, ch):
-            ans.append(Fraction(ch, zn))
-print(*sorted(ans), sep='\n')
+st_x = input()
+st_y = input()
+
+ax = int(st_x.replace('-', '+').split('+')[0])
+bx = int(st_x.replace('-', '+').split('+')[1][:-1])
+zx = st_x[len(str(ax))]
+if zx == '-':
+    bx *= (-1)
+ay = int(st_y.replace('-', '+').split('+')[0])
+by = int(st_y.replace('-', '+').split('+')[1][:-1])
+zy = st_y[len(str(ay))]
+if zy == '-1':
+    by *= (-1)
+aans = 0
+bans = 0
+
+a = ax
+b = bx
+for i in range(n - 1):
+    a = a * ax - b * bx
+    b = b * ax + a * bx
+aans += a
+bans += b
+
+a = ay
+b = by
+for i in range(n - 1):
+    a = a * ay - b * by
+    b = b * ay + a * by
+aans += a
+bans += b
+
+a = ax
+b = (-1) * bx
+for i in range(n - 1):
+    a = a * ax + b * bx
+    b = (-1) * b * ax - a * bx
+aans += a
+bans += b
+
+a = ay
+b = (-1) * by
+for i in range(n):
+    a = a * ay + b * by
+    b = (-1) * b * ay - a * by
+aans += a
+bans += b
+if b > 0:
+    print(f'({a}+{b}j)')
+elif b == 0:
+    print(f'({a})')
+else:
+    print(f'({a}{b}j)')
