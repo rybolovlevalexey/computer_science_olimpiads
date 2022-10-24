@@ -1,8 +1,12 @@
-countries = ['Russia', 'USA', 'UK', 'Germany', 'France', 'India']
-capitals = ['Moscow', 'Washington', 'London', 'Berlin', 'Paris', 'Delhi']
-population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
-for i in range(len(countries)):
-    cap = capitals[i]
-    country = countries[i]
-    popul = population[i]
-    print(f'{cap} is the capital of {country}, population equal {popul} people.')
+sp_x = list()
+sp_y = list()
+sp_z = list()
+for i in range(3):
+    dots = list(map(float, input().split()))
+    if i == 0:
+        sp_x = dots
+    elif i == 1:
+        sp_y = dots
+    else:
+        sp_z = dots
+print(all(list(d <= 4 for d in map(lambda x: x[0]**2 + x[1]**2 + x[2]**2, zip(sp_x, sp_y, sp_z)))))
