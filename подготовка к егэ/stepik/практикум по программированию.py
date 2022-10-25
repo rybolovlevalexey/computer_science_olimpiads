@@ -1,11 +1,9 @@
-a = int(input())
-b = int(input())
-for num in range(a, b + 1):
+n = int(input())
+ans = list()
+for i in range(n):
+    k = int(input())
     sp = list()
-    for d in str(num):
-        if d == '0':
-            sp.append(False)
-        else:
-            sp.append(num % int(d) == 0)
-    if all(sp):
-        print(num, end=' ')
+    for j in range(k):
+        sp.append(input().split()[1] == '5')
+    ans.append(any(sp))
+print('YES' if all(ans) else 'NO')
