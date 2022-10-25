@@ -1,26 +1,13 @@
-file = open('goats.txt')
-output = open('answer.txt', 'w')
-colors = set()
-file.readline()
-goats = dict()
-flag = False
-cnt = 0
-for elem in file.readlines():
-    elem = elem.strip()
-    if elem == 'GOATS':
-        flag = True
-        continue
-    if not flag:
-        colors.add(elem.split()[0])
-        goats[elem.split()[0]] = 0
+n = int(input())
+ans = open('output.txt', 'w')
+for i in range(n):
+    name = input()
+    file = open(name, 'r')
+    data = file.readlines()
+    if len(data) > 0 and i + 1 != n:
+        data[-1] += '\n'
+    if len(data) == 0:
+        ans.write('\n')
     else:
-        goats[elem.split()[0]] += 1
-    if flag:
-        cnt += 1
-ans = list()
-for key, value in goats.items():
-    if value / cnt > 0.07:
-        ans.append(f'{key} goat')
-ans = sorted(ans)
-output.write('\n'.join(ans))
-output.close()
+        ans.write(''.join(data))
+ans.close()
