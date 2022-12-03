@@ -1,1 +1,0 @@
-print(len(max(open("24.txt", "r").read().strip().split('XZZY'), key=lambda x: len(x))) + 6)
