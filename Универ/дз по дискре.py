@@ -24,4 +24,4 @@ for k in range(len(st) - 1):
     for i in range(len(st)):  # проход по строкам
         ans[i][len(st) - 2 - k] = bwt[i]
     ans = sorted(ans)
-pprint(ans)
+print(''.join(ans[pos]))
